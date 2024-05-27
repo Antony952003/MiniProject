@@ -10,6 +10,6 @@ namespace MovieBookingAPI.Models
         public decimal RefundAmount { get; set; }
 
         public Booking Booking { get; set; }
-        public ICollection<Seat> Seats { get; set; }
+        public ICollection<ShowtimeSeat> ShowtimeSeats { get; set; }
     }
 }

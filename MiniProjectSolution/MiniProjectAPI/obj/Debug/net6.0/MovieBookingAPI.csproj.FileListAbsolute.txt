@@ -66,3 +66,5 @@ C:\Users\VC\Desktop\Visual Studio\MiniProjectSolution\MiniProjectAPI\obj\Debug\n
 C:\Users\VC\Desktop\Visual Studio\MiniProjectSolution\MiniProjectAPI\obj\Debug\net6.0\MovieBookingAPI.pdb
 C:\Users\VC\Desktop\Visual Studio\MiniProjectSolution\MiniProjectAPI\obj\Debug\net6.0\MovieBookingAPI.genruntimeconfig.cache
 C:\Users\VC\Desktop\Visual Studio\MiniProjectSolution\MiniProjectAPI\obj\Debug\net6.0\ref\MovieBookingAPI.dll
+C:\Users\VC\Desktop\Visual Studio\MiniProjectSolution\MiniProjectAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\VC\Desktop\Visual Studio\MiniProjectSolution\MiniProjectAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll

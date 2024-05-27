@@ -1,4 +1,6 @@
-﻿namespace MiniProjectAPI.Models
+﻿using MovieBookingAPI.Models;
+
+namespace MiniProjectAPI.Models
 {
     public class Showtime
     {
@@ -9,5 +11,6 @@
         public Movie Movie { get; set; }
         public Screen Screen { get; set; }
         public ICollection<Booking> Bookings { get; set; }
+        public ICollection<ShowtimeSeat> ShowtimeSeats { get; set; }
     }
 }

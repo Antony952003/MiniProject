@@ -22,6 +22,7 @@ namespace MovieBookingAPI.Contexts
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Snack> Snacks { get; set; }
         public DbSet<BookingSnack> BookingSnacks { get; set; }
+        public DbSet<ShowtimeSeat> ShowtimeSeats { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -54,20 +55,22 @@ namespace MovieBookingAPI.Contexts
             modelBuilder.Entity<Showtime>()
                 .HasMany(s => s.Bookings)
                 .WithOne(b => b.Showtime)
-                .HasForeignKey(b => b.ShowtimeId);
+                .HasForeignKey(b => b.ShowtimeId)
+                .OnDelete(DeleteBehavior.Cascade);
 
-            // Booking to Seat one-to-many relationship
+            // Booking to ShowtimeSeat one-to-many relationship
             modelBuilder.Entity<Booking>()
-                .HasMany(b => b.Seats)
-                .WithOne(s => s.Booking)
-                .HasForeignKey(s => s.BookingId);
-
-            // Cancellation to Seat one-to-many relationship
-            modelBuilder.Entity<Cancellation>()
-                .HasMany(c => c.Seats)
-                .WithOne(s => s.Cancellation)
-                .HasForeignKey(s => s.CancellationId)
+                .HasMany(b => b.ShowtimeSeats)
+                .WithOne(ss => ss.Booking)
+                .HasForeignKey(ss => ss.BookingId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            // Cancellation to ShowtimeSeat one-to-many relationship
+            modelBuilder.Entity<Cancellation>()
+                .HasMany(c => c.ShowtimeSeats)
+                .WithOne(ss => ss.Cancellation)
+                .HasForeignKey(ss => ss.CancellationId)
+                .OnDelete(DeleteBehavior.Restrict); 
 
             modelBuilder.Entity<BookingSnack>()
                 .HasOne(bs => bs.Booking)
@@ -78,6 +81,40 @@ namespace MovieBookingAPI.Contexts
                 .HasOne(bs => bs.Snack)
                 .WithMany(s => s.BookingSnacks)
                 .HasForeignKey(bs => bs.SnackId);
+
+            // Seat and ShowtimeSeat relationship
+            modelBuilder.Entity<Seat>()
+                .HasMany(seat => seat.ShowtimeSeats)
+                .WithOne(ss => ss.Seat)
+                .HasForeignKey(ss => ss.SeatId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+
+            modelBuilder.Entity<ShowtimeSeat>()
+            .HasOne(ss => ss.Showtime)
+            .WithMany(s => s.ShowtimeSeats)
+            .HasForeignKey(ss => ss.ShowtimeId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<ShowtimeSeat>()
+                .HasOne(ss => ss.Seat)
+                .WithMany(s => s.ShowtimeSeats)
+                .HasForeignKey(ss => ss.SeatId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // ShowtimeSeat to Booking
+            modelBuilder.Entity<ShowtimeSeat>()
+                .HasOne(ss => ss.Booking)
+                .WithMany(b => b.ShowtimeSeats)
+                .HasForeignKey(ss => ss.BookingId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // ShowtimeSeat to Cancellation
+            modelBuilder.Entity<ShowtimeSeat>()
+                .HasOne(ss => ss.Cancellation)
+                .WithMany(c => c.ShowtimeSeats)
+                .HasForeignKey(ss => ss.CancellationId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

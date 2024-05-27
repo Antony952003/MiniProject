@@ -70,7 +70,11 @@ namespace MovieBookingAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BookingSnackId"), 1L, 1);
 
-                    b.Property<int>("BookingId")
+                    b.Property<int?>("BookingId")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
                         .HasColumnType("int");
 
                     b.Property<int>("SnackId")
@@ -216,21 +220,11 @@ namespace MovieBookingAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SeatId"), 1L, 1);
 
-                    b.Property<int>("BookingId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("CancellationId")
-                        .IsRequired()
-                        .HasColumnType("int");
-
                     b.Property<int>("Column")
                         .HasColumnType("int");
 
-                    b.Property<bool>("IsBlocked")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsBooked")
-                        .HasColumnType("bit");
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Row")
                         .IsRequired()
@@ -243,14 +237,7 @@ namespace MovieBookingAPI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("price")
-                        .HasColumnType("decimal(18,2)");
-
                     b.HasKey("SeatId");
-
-                    b.HasIndex("BookingId");
-
-                    b.HasIndex("CancellationId");
 
                     b.HasIndex("ScreenId");
 
@@ -298,9 +285,6 @@ namespace MovieBookingAPI.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
                     b.HasKey("SnackId");
 
                     b.ToTable("Snacks");
@@ -340,6 +324,9 @@ namespace MovieBookingAPI.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -398,6 +385,45 @@ namespace MovieBookingAPI.Migrations
                     b.HasIndex("BookingId");
 
                     b.ToTable("Cancellations");
+                });
+
+            modelBuilder.Entity("MovieBookingAPI.Models.ShowtimeSeat", b =>
+                {
+                    b.Property<int>("ShowtimeSeatId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShowtimeSeatId"), 1L, 1);
+
+                    b.Property<int?>("BookingId")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CancellationId")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.Property<int>("SeatId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ShowtimeId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ShowtimeSeatId");
+
+                    b.HasIndex("BookingId");
+
+                    b.HasIndex("CancellationId");
+
+                    b.HasIndex("SeatId");
+
+                    b.HasIndex("ShowtimeId");
+
+                    b.ToTable("ShowtimeSeats");
                 });
 
             modelBuilder.Entity("MiniProjectAPI.Models.Booking", b =>
@@ -481,27 +507,11 @@ namespace MovieBookingAPI.Migrations
 
             modelBuilder.Entity("MiniProjectAPI.Models.Seat", b =>
                 {
-                    b.HasOne("MiniProjectAPI.Models.Booking", "Booking")
-                        .WithMany("Seats")
-                        .HasForeignKey("BookingId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MovieBookingAPI.Models.Cancellation", "Cancellation")
-                        .WithMany("Seats")
-                        .HasForeignKey("CancellationId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
                     b.HasOne("MiniProjectAPI.Models.Screen", "Screen")
                         .WithMany("Seats")
                         .HasForeignKey("ScreenId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
-
-                    b.Navigation("Booking");
-
-                    b.Navigation("Cancellation");
 
                     b.Navigation("Screen");
                 });
@@ -547,6 +557,41 @@ namespace MovieBookingAPI.Migrations
                     b.Navigation("Booking");
                 });
 
+            modelBuilder.Entity("MovieBookingAPI.Models.ShowtimeSeat", b =>
+                {
+                    b.HasOne("MiniProjectAPI.Models.Booking", "Booking")
+                        .WithMany("ShowtimeSeats")
+                        .HasForeignKey("BookingId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("MovieBookingAPI.Models.Cancellation", "Cancellation")
+                        .WithMany("ShowtimeSeats")
+                        .HasForeignKey("CancellationId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("MiniProjectAPI.Models.Seat", "Seat")
+                        .WithMany("ShowtimeSeats")
+                        .HasForeignKey("SeatId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("MiniProjectAPI.Models.Showtime", "Showtime")
+                        .WithMany("ShowtimeSeats")
+                        .HasForeignKey("ShowtimeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Booking");
+
+                    b.Navigation("Cancellation");
+
+                    b.Navigation("Seat");
+
+                    b.Navigation("Showtime");
+                });
+
             modelBuilder.Entity("MiniProjectAPI.Models.Booking", b =>
                 {
                     b.Navigation("BookingSnacks");
@@ -556,7 +601,7 @@ namespace MovieBookingAPI.Migrations
                     b.Navigation("Payment")
                         .IsRequired();
 
-                    b.Navigation("Seats");
+                    b.Navigation("ShowtimeSeats");
                 });
 
             modelBuilder.Entity("MiniProjectAPI.Models.Movie", b =>
@@ -573,9 +618,16 @@ namespace MovieBookingAPI.Migrations
                     b.Navigation("Showtimes");
                 });
 
+            modelBuilder.Entity("MiniProjectAPI.Models.Seat", b =>
+                {
+                    b.Navigation("ShowtimeSeats");
+                });
+
             modelBuilder.Entity("MiniProjectAPI.Models.Showtime", b =>
                 {
                     b.Navigation("Bookings");
+
+                    b.Navigation("ShowtimeSeats");
                 });
 
             modelBuilder.Entity("MiniProjectAPI.Models.Snack", b =>
@@ -597,7 +649,7 @@ namespace MovieBookingAPI.Migrations
 
             modelBuilder.Entity("MovieBookingAPI.Models.Cancellation", b =>
                 {
-                    b.Navigation("Seats");
+                    b.Navigation("ShowtimeSeats");
                 });
 #pragma warning restore 612, 618
         }
