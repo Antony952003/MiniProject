@@ -85,6 +85,10 @@ namespace MiniProjectAPI
             builder.Services.AddScoped<IRepository<int, Snack>, SnackRepository>();
             builder.Services.AddScoped<IRepository<int, BookingSnack>, BookingSnackRepository>();
             builder.Services.AddScoped<IRepository<int, ShowtimeSeat>, ShowtimeSeatRepository>();
+            builder.Services.AddScoped<ITransaction, TransactionRepository>();
+            builder.Services.AddScoped<IUserPointRepository, UserPointRepository>();
+
+
             #endregion
 
             #region services
@@ -99,7 +103,11 @@ namespace MiniProjectAPI
             builder.Services.AddScoped<ISnackService, SnackService>();
             builder.Services.AddScoped<IBookingSnackService, BookingSnackService>();
             builder.Services.AddScoped<IBookingService, BookingService>();
-
+            builder.Services.AddScoped<IPaymentService, PaymentService>();
+            builder.Services.AddScoped<ICancellationService, CancellationService>();
+            builder.Services.AddScoped<IReviewService, ReviewService>();
+            builder.Services.AddHostedService<BookingCleanupService>();
+            builder.Services.AddScoped<IPointsService, PointsService>();
             #endregion
 
 

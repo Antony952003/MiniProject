@@ -23,6 +23,7 @@ namespace MovieBookingAPI.Contexts
         public DbSet<Snack> Snacks { get; set; }
         public DbSet<BookingSnack> BookingSnacks { get; set; }
         public DbSet<ShowtimeSeat> ShowtimeSeats { get; set; }
+        public DbSet<UserPoint> UserPoints { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -81,13 +82,6 @@ namespace MovieBookingAPI.Contexts
                 .HasOne(bs => bs.Snack)
                 .WithMany(s => s.BookingSnacks)
                 .HasForeignKey(bs => bs.SnackId);
-
-            // Seat and ShowtimeSeat relationship
-            modelBuilder.Entity<Seat>()
-                .HasMany(seat => seat.ShowtimeSeats)
-                .WithOne(ss => ss.Seat)
-                .HasForeignKey(ss => ss.SeatId)
-                .OnDelete(DeleteBehavior.Restrict);
 
 
             modelBuilder.Entity<ShowtimeSeat>()

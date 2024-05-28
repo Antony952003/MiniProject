@@ -8,5 +8,6 @@ namespace MovieBookingAPI.Interfaces
         public Task<BookingReturnDTO> MakeBooking(BookingInputDTO bookingInputDTO);
         public Task<List<BookingReturnDTO>> GetAllBookings();
         public Task<BookingReturnDTO> GetBookingById(int bookingid);
+        public Task<IEnumerable<Booking>> GetExpiredPendingBookings(TimeSpan expirationTime);
     }
 }

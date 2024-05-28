@@ -36,8 +36,8 @@ namespace MovieBookingAPI.Repositories
 
         public async Task<Payment> Get(int key)
         {
-            var payments = await _context.Payments.ToListAsync();
-            var payment = payments.Find(x => x.PaymentId == key);
+            var payments = await Get();
+            var payment = payments.ToList().Find(x => x.PaymentId == key);
             if (payment != null)
                 return payment;
             throw new EntityNotFoundException("Payment");
@@ -45,7 +45,8 @@ namespace MovieBookingAPI.Repositories
 
         public async Task<IEnumerable<Payment>> Get()
         {
-            var result = (await _context.Payments.ToListAsync());
+            var result = (await _context.Payments
+                .ToListAsync());
             if (result.Count == 0)
                 throw new NoEntitiesFoundException("Payment");
             return result;

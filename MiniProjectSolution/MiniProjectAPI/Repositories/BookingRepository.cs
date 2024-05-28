@@ -48,7 +48,10 @@ namespace MovieBookingAPI.Repositories
                 .Include(x => x.Showtime)
                 .Include(x => x.User)
                 .Include(x => x.BookingSnacks)
+                    .ThenInclude(ss => ss.Snack)
                 .Include(x => x.ShowtimeSeats)
+                    .ThenInclude(ss => ss.Seat)
+                .Include(x => x.Showtime)
                 .Include(x => x.Cancellations)
                 .ToListAsync());
             if (result.Count == 0)
@@ -66,6 +69,11 @@ namespace MovieBookingAPI.Repositories
                 return booking;
             }
             throw new EntityNotFoundException("Booking");
+        }
+        private async Task<IEnumerable<Booking>> GetExpiredPendingBookings(TimeSpan expirationTime)
+        {
+            var allBookings = await Get();
+            return allBookings.Where(b => b.PaymentStatus == "Pending" && DateTime.Now - b.CreatedAt >= expirationTime).ToList();
         }
     }
 }

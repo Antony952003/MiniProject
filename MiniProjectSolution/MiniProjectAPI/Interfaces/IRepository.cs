@@ -1,4 +1,5 @@
-﻿namespace MovieBookingAPI.Interfaces
+﻿
+namespace MovieBookingAPI.Interfaces
 {
         public interface IRepository<K, T> where T : class
         {
@@ -7,5 +8,6 @@
             public Task<T> Update(T item);
             public Task<T> Get(K key);
             public Task<IEnumerable<T>> Get();
-        }
+        //Task<IEnumerable<object>> GetExpiredPendingBookings(TimeSpan timeSpan);
+    }
 }

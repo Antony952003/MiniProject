@@ -36,8 +36,8 @@ namespace MovieBookingAPI.Repositories
 
         public async Task<Seat> Get(int key)
         {
-            var seats = await _context.Seats.ToListAsync();
-            var seat = seats.Find(x => x.SeatId == key);
+            var seats = await Get();
+            var seat = seats.ToList().Find(x => x.SeatId == key);
             if (seat != null)
                 return seat;
             throw new EntityNotFoundException("Seat");

@@ -8,7 +8,6 @@
         public string Comment { get; set; }
         public int Rating { get; set; }
         public DateTime CreatedAt { get; set; }
-
         public User User { get; set; }
         public Movie Movie { get; set; }
     }

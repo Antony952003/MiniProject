@@ -36,8 +36,8 @@ namespace MovieBookingAPI.Repositories
 
         public async Task<Review> Get(int key)
         {
-            var reviews = await _context.Reviews.ToListAsync();
-            var review = reviews.Find(x => x.ReviewId == key);
+            var reviews = await Get();
+            var review = reviews.ToList().Find(x => x.ReviewId == key);
             if (review != null)
                 return review;
             throw new EntityNotFoundException("Review");
@@ -45,7 +45,10 @@ namespace MovieBookingAPI.Repositories
 
         public async Task<IEnumerable<Review>> Get()
         {
-            var result = (await _context.Reviews.ToListAsync());
+            var result = (await _context.Reviews
+                .Include(x => x.User)
+                .Include(x => x.Movie)
+                .ToListAsync());
             if (result.Count == 0)
                 throw new NoEntitiesFoundException("Review");
             return result;

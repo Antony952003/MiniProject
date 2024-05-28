@@ -53,5 +53,36 @@ namespace MovieBookingAPI.Services
             };
             return theater;
         }
+
+        public async Task<TheaterDTO> GetTheaterById(int theaterId)
+        {
+            var theater = await _theaterRepo.Get(theaterId);
+            if(theater == null)
+            {
+                throw new EntityNotFoundException("Theater");
+            }
+            var result = MapTheaterWithReturnDTO(theater);
+            return result;
+        }
+
+        public async Task<TheaterDTO> GetTheaterByName(string theaterName)
+        {
+            var theaters = await _theaterRepo.Get();
+            var theater = theaters.ToList().FirstOrDefault(x => x.Name == theaterName);
+            if(theater != null)
+            {
+                return MapTheaterWithReturnDTO(theater);
+            }
+            throw new EntityNotFoundException("Theater");
+        }
+
+        public async Task<TheaterDTO> UpdateTheaterLocation(int theaterid, string location)
+        {
+            var theater = await _theaterRepo.Get(theaterid);
+            if (theater == null) throw new EntityNotFoundException("Theater");
+            theater.Location = location;
+            theater = await _theaterRepo.Update(theater);
+            return MapTheaterWithReturnDTO(theater);
+        }
     }
 }

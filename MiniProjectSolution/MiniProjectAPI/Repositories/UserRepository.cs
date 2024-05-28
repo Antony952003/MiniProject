@@ -35,11 +35,8 @@ namespace MovieBookingAPI.Repositories
 
         public async Task<User> Get(int key)
         {
-            var users = await _context.Users
-                .Include(x => x.Bookings)
-                .Include(x => x.Reviews)
-                .ToListAsync();
-            var user = users.Find(x => x.Id == key);
+            var users = await Get();
+            var user = users.ToList().Find(x => x.Id == key);
             if (user != null)
                  return user;
             return null;

@@ -64,5 +64,38 @@ namespace MovieBookingAPI.Services
             };
             return screen;
         }
+
+        public async Task<List<ScreenOutputDTO>> GetScreensByTheaterName(string theaterName)
+        {
+            var screens = await _repository.Get();
+            screens = screens.ToList().FindAll(x => x.Theater.Name == theaterName).ToList();
+            if(screens == null)
+            {
+                throw new Exception("There is no screens for theater name " + theaterName);
+            }
+            List<ScreenOutputDTO> result = new List<ScreenOutputDTO>();  
+            foreach(var screen in screens)
+            {
+                result.Add(MapScreenWithOutputDTO(screen, theaterName));
+            }
+            return result;
+             
+        }
+
+        public async Task<ScreenOutputDTO> GetScreenByScreenName(string screenName)
+        {
+            var screens = await _repository.Get();
+            var screen = screens.ToList().FirstOrDefault(x => x.Name == screenName);
+            if(screen  != null) 
+                return MapScreenWithOutputDTO(screen, screen.Theater.Name);
+            throw new EntityNotFoundException("Screen");
+        }
+
+        public async Task<ScreenOutputDTO> GetScreenByScreenId(int screenId)
+        {
+            var screen = await _repository.Get(screenId);
+            if(screen != null) return MapScreenWithOutputDTO(screen, screen.Theater.Name);
+            throw new EntityNotFoundException("Screen");
+        }
     }
 }

@@ -146,6 +146,10 @@ namespace MovieBookingAPI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("PaymentStatus")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("PaymentId");
 
                     b.HasIndex("BookingId")
@@ -396,11 +400,9 @@ namespace MovieBookingAPI.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShowtimeSeatId"), 1L, 1);
 
                     b.Property<int?>("BookingId")
-                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<int?>("CancellationId")
-                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<int>("SeatId")
@@ -424,6 +426,30 @@ namespace MovieBookingAPI.Migrations
                     b.HasIndex("ShowtimeId");
 
                     b.ToTable("ShowtimeSeats");
+                });
+
+            modelBuilder.Entity("MovieBookingAPI.Models.UserPoint", b =>
+                {
+                    b.Property<int>("UserPointsId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserPointsId"), 1L, 1);
+
+                    b.Property<DateTime>("LastUpdated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Points")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserPointsId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserPoints");
                 });
 
             modelBuilder.Entity("MiniProjectAPI.Models.Booking", b =>
@@ -562,14 +588,12 @@ namespace MovieBookingAPI.Migrations
                     b.HasOne("MiniProjectAPI.Models.Booking", "Booking")
                         .WithMany("ShowtimeSeats")
                         .HasForeignKey("BookingId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("MovieBookingAPI.Models.Cancellation", "Cancellation")
                         .WithMany("ShowtimeSeats")
                         .HasForeignKey("CancellationId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("MiniProjectAPI.Models.Seat", "Seat")
                         .WithMany("ShowtimeSeats")
@@ -580,7 +604,7 @@ namespace MovieBookingAPI.Migrations
                     b.HasOne("MiniProjectAPI.Models.Showtime", "Showtime")
                         .WithMany("ShowtimeSeats")
                         .HasForeignKey("ShowtimeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Booking");
@@ -590,6 +614,17 @@ namespace MovieBookingAPI.Migrations
                     b.Navigation("Seat");
 
                     b.Navigation("Showtime");
+                });
+
+            modelBuilder.Entity("MovieBookingAPI.Models.UserPoint", b =>
+                {
+                    b.HasOne("MiniProjectAPI.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("MiniProjectAPI.Models.Booking", b =>
