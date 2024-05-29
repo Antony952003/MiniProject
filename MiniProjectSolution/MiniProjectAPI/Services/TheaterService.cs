@@ -12,6 +12,13 @@ namespace MovieBookingAPI.Services
         {
             _theaterRepo = theaterRepo;
         }
+        /// <summary>
+        /// Adds a new theater to the system.
+        /// </summary>
+        /// <param name="theaterDTO">The theater DTO containing information about the theater to be added.</param>
+        /// <returns>A theater DTO containing information about the added theater.</returns>
+        /// <exception cref="EntityAlreadyExists">Thrown when the theater with the provided ID already exists.</exception>
+
         public async Task<TheaterDTO> AddTheater(TheaterDTO theaterDTO)
         {
             Theater theater = null;
@@ -33,6 +40,7 @@ namespace MovieBookingAPI.Services
                 throw new EntityAlreadyExists("Theater");
             }
         }
+
         private TheaterDTO? MapTheaterWithReturnDTO(Theater theater)
         {
             TheaterDTO result = new TheaterDTO()
@@ -53,6 +61,12 @@ namespace MovieBookingAPI.Services
             };
             return theater;
         }
+        /// <summary>
+        /// Retrieves a theater by its ID.
+        /// </summary>
+        /// <param name="theaterId">The ID of the theater to retrieve.</param>
+        /// <returns>A theater DTO containing information about the retrieved theater.</returns>
+        /// <exception cref="EntityNotFoundException">Thrown when the theater with the provided ID is not found.</exception>
 
         public async Task<TheaterDTO> GetTheaterById(int theaterId)
         {
@@ -64,6 +78,12 @@ namespace MovieBookingAPI.Services
             var result = MapTheaterWithReturnDTO(theater);
             return result;
         }
+        /// <summary>
+        /// Retrieves a theater by its name.
+        /// </summary>
+        /// <param name="theaterName">The name of the theater to retrieve.</param>
+        /// <returns>A theater DTO containing information about the retrieved theater.</returns>
+        /// <exception cref="EntityNotFoundException">Thrown when the theater with the provided name is not found.</exception>
 
         public async Task<TheaterDTO> GetTheaterByName(string theaterName)
         {
@@ -75,6 +95,13 @@ namespace MovieBookingAPI.Services
             }
             throw new EntityNotFoundException("Theater");
         }
+        /// <summary>
+        /// Updates the location of a theater.
+        /// </summary>
+        /// <param name="theaterid">The ID of the theater to update.</param>
+        /// <param name="location">The new location to be assigned to the theater.</param>
+        /// <returns>A theater DTO containing information about the updated theater.</returns>
+        /// <exception cref="EntityNotFoundException">Thrown when the theater with the provided ID is not found.</exception>
 
         public async Task<TheaterDTO> UpdateTheaterLocation(int theaterid, string location)
         {

@@ -15,6 +15,13 @@ namespace MovieBookingAPI.Services
             _repository = repository;
             _theaterRepo = theaterRepo;
         }
+        /// <summary>
+        /// Adds a new screen to a theater.
+        /// </summary>
+        /// <param name="screenDTO">The screen DTO containing information about the screen to be added.</param>
+        /// <returns>A screen output DTO containing information about the added screen.</returns>
+        /// <exception cref="EntityAlreadyExists">Thrown when a screen with the same ID already exists or an unexpected error occurs.</exception>
+
         public async Task<ScreenOutputDTO> AddScreenToTheater(ScreenDTO screenDTO)
         {
             ScreenOutputDTO screenOutputDTO = null;
@@ -64,6 +71,12 @@ namespace MovieBookingAPI.Services
             };
             return screen;
         }
+        /// <summary>
+        /// Retrieves screens by theater name.
+        /// </summary>
+        /// <param name="theaterName">The name of the theater for which screens are to be retrieved.</param>
+        /// <returns>A list of screen output DTOs containing information about screens in the specified theater.</returns>
+        /// <exception cref="Exception">Thrown when there are no screens available for the specified theater name.</exception>
 
         public async Task<List<ScreenOutputDTO>> GetScreensByTheaterName(string theaterName)
         {
@@ -81,6 +94,12 @@ namespace MovieBookingAPI.Services
             return result;
              
         }
+        /// <summary>
+        /// Retrieves a screen by its name.
+        /// </summary>
+        /// <param name="screenName">The name of the screen to be retrieved.</param>
+        /// <returns>A screen output DTO containing information about the retrieved screen.</returns>
+        /// <exception cref="EntityNotFoundException">Thrown when the specified screen is not found.</exception>
 
         public async Task<ScreenOutputDTO> GetScreenByScreenName(string screenName)
         {
@@ -90,6 +109,12 @@ namespace MovieBookingAPI.Services
                 return MapScreenWithOutputDTO(screen, screen.Theater.Name);
             throw new EntityNotFoundException("Screen");
         }
+        /// <summary>
+        /// Retrieves a screen by its ID.
+        /// </summary>
+        /// <param name="screenId">The ID of the screen to be retrieved.</param>
+        /// <returns>A screen output DTO containing information about the retrieved screen.</returns>
+        /// <exception cref="EntityNotFoundException">Thrown when the specified screen is not found.</exception>
 
         public async Task<ScreenOutputDTO> GetScreenByScreenId(int screenId)
         {

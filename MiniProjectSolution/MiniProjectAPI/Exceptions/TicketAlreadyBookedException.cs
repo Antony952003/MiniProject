@@ -5,9 +5,9 @@ namespace MovieBookingAPI.Exceptions
     public class TicketAlreadyBookedException : Exception
     {
         readonly string message;
-        public TicketAlreadyBookedException()
+        public TicketAlreadyBookedException(string seatnumber)
         {
-            message = "Ticket is Already Booked";
+            message = $"Ticket {seatnumber} is Already Booked";
         }
         public override string Message => message;
 

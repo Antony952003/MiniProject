@@ -17,7 +17,7 @@ namespace MovieBookingAPI.Controllers
             _movieService = movieService;
         }
         [Authorize(Roles = "Admin")]
-        [HttpPost]
+        [HttpPost("AddMovie")]
         [ProducesResponseType(typeof(MovieReturnDTO), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ErrorModel), StatusCodes.Status401Unauthorized)]
         public async Task<ActionResult<MovieReturnDTO>> AddMovie(MovieInputDTO movieInput)
@@ -28,6 +28,23 @@ namespace MovieBookingAPI.Controllers
                 return Ok(result);
             }
             catch(Exception ex)
+            {
+                return BadRequest(new ErrorModel(401, ex.Message));
+            }
+
+        }
+        [Authorize(Roles = "Admin, User")]
+        [HttpGet("GetMostReviewedMovies")]
+        [ProducesResponseType(typeof(List<MovieReturnDTO>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ErrorModel), StatusCodes.Status401Unauthorized)]
+        public async Task<ActionResult<List<MovieReturnDTO>>> GetMoviesReviewed()
+        {
+            try
+            {
+                var result = await _movieService.SortMoviesByReviews();
+                return Ok(result);
+            }
+            catch (Exception ex)
             {
                 return BadRequest(new ErrorModel(401, ex.Message));
             }

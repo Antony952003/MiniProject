@@ -20,6 +20,12 @@ namespace MovieBookingAPI.Services
             _userRepo = userRepo;
             _tokenService = tokenService;
         }
+        /// <summary>
+        /// Handles user login with the provided credentials.
+        /// </summary>
+        /// <param name="logininputDTO">DTO containing user login information.</param>
+        /// <returns>A DTO containing login details and token.</returns>
+        /// <exception cref="UnauthorizedUserException">Thrown when the user credentials are invalid.</exception>
 
         public async Task<LoginReturnDTO> Login(UserLoginDTO logininputDTO)
         {
@@ -49,6 +55,12 @@ namespace MovieBookingAPI.Services
             returnDTO.Token = _tokenService.GenerateToken(user);
             return returnDTO;
         }
+        /// <summary>
+        /// Compares the encrypted password with the stored password.
+        /// </summary>
+        /// <param name="encrypterPass">Encrypted password to compare.</param>
+        /// <param name="password">Stored password for comparison.</param>
+        /// <returns>True if passwords match; otherwise, false.</returns>
 
         private bool ComparePassword(byte[] encrypterPass, byte[] password)
         {
@@ -61,6 +73,12 @@ namespace MovieBookingAPI.Services
             }
             return true;
         }
+        /// <summary>
+        /// Registers a new user with the provided information.
+        /// </summary>
+        /// <param name="userregisterDTO">DTO containing user registration information.</param>
+        /// <returns>A DTO containing the registered user details.</returns>
+        /// <exception cref="UnableToRegisterException">Thrown when registration fails.</exception>
 
         public async Task<RegisterOutputDTO> Register(RegisterInputDTO userregisterDTO)
         {
@@ -92,16 +110,29 @@ namespace MovieBookingAPI.Services
             throw new UnableToRegisterException("Not able to register at this moment Or Check if the both passwords match");
 
         }
+        /// <summary>
+        /// Reverts the insertion of user details in case of registration failure.
+        /// </summary>
+        /// <param name="userdetail">User details to revert.</param>
 
         private async Task RevertUserDetailInsert(UserDetail userdetail)
         {
             await _userDetailsRepo.Delete(userdetail.UserId);
         }
+        /// <summary>
+        /// Reverts the insertion of user data in case of registration failure.
+        /// </summary>
+        /// <param name="user">User data to revert.</param>
 
         private async Task RevertUserInsert(User user)
         {
             await _userRepo.Delete(user.Id);
         }
+        /// <summary>
+        /// Maps a user entity to a DTO for registration output.
+        /// </summary>
+        /// <param name="user">User entity to map.</param>
+        /// <returns>A DTO containing the mapped user data.</returns>
 
         private RegisterOutputDTO MapUserToRegisterOutputDTO(User user)
         {
@@ -116,6 +147,11 @@ namespace MovieBookingAPI.Services
             };
             return outputDTO;
         }
+        /// <summary>
+        /// Maps user input data to a user entity for registration.
+        /// </summary>
+        /// <param name="userregisterDTO">DTO containing user registration information.</param>
+        /// <returns>A mapped user entity.</returns>
 
         private UserDetail? MapUserToUserDetail(RegisterInputDTO userregisterDTO)
         {
@@ -131,6 +167,11 @@ namespace MovieBookingAPI.Services
             userdetail.Password = hMACSHA.ComputeHash(Encoding.UTF8.GetBytes(userregisterDTO.Password));
             return userdetail;
         }
+        /// <summary>
+        /// Maps user input data to user details entity for password encryption.
+        /// </summary>
+        /// <param name="userregisterDTO">DTO containing user registration information.</param>
+        /// <returns>A mapped user details entity.</returns>
 
         private User? MapInputwithUser(RegisterInputDTO userregisterDTO)
         {

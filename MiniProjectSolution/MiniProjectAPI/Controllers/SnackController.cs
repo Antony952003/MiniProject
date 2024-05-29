@@ -18,14 +18,30 @@ namespace MovieBookingAPI.Controllers
             _snackService = snackService;
         }
         [Authorize(Roles = "Admin")]
-        [HttpPost]
+        [HttpPost("AddSnack")]
         [ProducesResponseType(typeof(Snack), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ErrorModel), StatusCodes.Status401Unauthorized)]
-        public async Task<ActionResult<Snack>> AddSnacks(SnackInputDTO snackInputDTO)
+        public async Task<ActionResult<SnackReturnDTO>> AddSnacks(SnackInputDTO snackInputDTO)
         {
             try
             {
                 var result = await _snackService.AddSnack(snackInputDTO);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return NotFound(new ErrorModel(404, ex.Message));
+            }
+        }
+        [Authorize(Roles = "Admin")]
+        [HttpPost("UpdateSnackPrice")]
+        [ProducesResponseType(typeof(Snack), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ErrorModel), StatusCodes.Status401Unauthorized)]
+        public async Task<ActionResult<SnackReturnDTO>> UpdateSnackPrice(string name, decimal newPrice)
+        {
+            try
+            {
+                var result = await _snackService.UpdateSnackPrice(name, newPrice);
                 return Ok(result);
             }
             catch (Exception ex)

@@ -36,5 +36,21 @@ namespace MovieBookingAPI.Controllers
                 return NotFound(new ErrorModel(404, ex.Message));
             }
         }
+        [Authorize(Roles = "User")]
+        [HttpGet("GetMovieReviews")]
+        [ProducesResponseType(typeof(List<ReviewReturnDTO>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ErrorModel), StatusCodes.Status401Unauthorized)]
+        public async Task<ActionResult<List<ReviewReturnDTO>>> GetMovieReviews(string moviename)
+        {
+            try
+            {
+                var result = await _reviewService.GetMovieReviews(moviename);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return NotFound(new ErrorModel(404, ex.Message));
+            }
+        }
     }
 }

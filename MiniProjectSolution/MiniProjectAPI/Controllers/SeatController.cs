@@ -19,6 +19,7 @@ namespace MovieBookingAPI.Controllers
 
         [HttpPost]
         [Authorize(Roles = "Admin")]
+        [Route("GenerateSeats")]
         [ProducesResponseType(typeof(IEnumerable<SeatOutputDTO>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ErrorModel), StatusCodes.Status401Unauthorized)]
         public async Task<ActionResult<IEnumerable<SeatOutputDTO>>> SeatGeneration(SeatGenerationInputDTO seatGeneration)

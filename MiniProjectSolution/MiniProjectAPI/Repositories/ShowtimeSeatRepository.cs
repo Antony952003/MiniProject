@@ -37,6 +37,7 @@ namespace MovieBookingAPI.Repositories
         public async Task<ShowtimeSeat> Get(int key)
         {
             var showtimeseats = await Get();
+            if (showtimeseats == null) return null;
             var showtimeseat = showtimeseats.ToList().Find(x => x.ShowtimeSeatId == key);
             if (showtimeseat != null)
                 return showtimeseat;
@@ -50,7 +51,7 @@ namespace MovieBookingAPI.Repositories
                 .Include(x => x.Seat)
                 .ToListAsync();
             if (result.Count == 0)
-                throw new NoEntitiesFoundException("ShowtimeSeat");
+                return null;
             return result;
         }
 

@@ -12,6 +12,12 @@ namespace MovieBookingAPI.Services
         public MovieService(IRepository<int, Movie> movieRepo) { 
             _movieRepo = movieRepo;
         }
+        /// <summary>
+        /// Adds a new movie to the system.
+        /// </summary>
+        /// <param name="movieInputDTO">The movie input DTO containing information about the movie to be added.</param>
+        /// <returns>A movie return DTO containing information about the added movie.</returns>
+        /// <exception cref="EntityAlreadyExists">Thrown when a movie with the same title already exists.</exception>
         public async Task<MovieReturnDTO> AddMovie(MovieInputDTO movieInputDTO)
         {
             var movies = await _movieRepo.Get();
@@ -36,16 +42,32 @@ namespace MovieBookingAPI.Services
                 throw new EntityAlreadyExists("Movie");
             }
         }
+        /// <summary>
+        /// Maps a movie entity to a movie return DTO.
+        /// </summary>
+        /// <param name="movie">The movie entity to be mapped.</param>
+        /// <returns>A movie return DTO containing information mapped from the provided movie entity.</returns>
 
         private MovieReturnDTO? MapMovieToReturnDTO(Movie movie)
         {
             MovieReturnDTO returnDTO = new MovieReturnDTO()
             {
+                MovieId = movie.MovieId,
                 Title = movie.Title,
-                Message = "Movie Added Succesfully!!"
+                Description = movie.Description,
+                Genre = movie.Genre,
+                Cast = movie.Cast,
+                Director = movie.Director,
+                DurationInHours = movie.DurationInHours,
+                AverageRating = 0
             };
             return returnDTO;
         }
+        /// <summary>
+        /// Maps a movie input DTO to a movie entity.
+        /// </summary>
+        /// <param name="movieInputDTO">The movie input DTO to be mapped.</param>
+        /// <returns>A movie entity mapped from the provided movie input DTO.</returns>
 
         private Movie? MapInputDTOToMovie(MovieInputDTO movieInputDTO)
         {
@@ -59,6 +81,31 @@ namespace MovieBookingAPI.Services
                 DurationInHours = movieInputDTO.DurationInHours,
             };
             return movie;
+        }
+        public async Task<List<MovieReturnDTO>> SortMoviesByReviews()
+        {
+            var moviesWithReviews = await _movieRepo.Get();
+            var sortedMovies = moviesWithReviews
+                .Select(movie => new
+                {
+                    Movie = movie,
+                    AverageRating = movie.Reviews.Any() ? movie.Reviews.Average(r => r.Rating) : 0
+                })
+                .OrderByDescending(m => m.AverageRating)
+                .Select(m => new MovieReturnDTO
+                {
+                    MovieId = m.Movie.MovieId,
+                    Title = m.Movie.Title,
+                    Description = m.Movie.Description,
+                    Genre = m.Movie.Genre,
+                    Cast = m.Movie.Cast,
+                    Director = m.Movie.Director,
+                    DurationInHours = m.Movie.DurationInHours,
+                    AverageRating = m.AverageRating
+                })
+                .ToList();
+
+            return sortedMovies;
         }
     }
 }

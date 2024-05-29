@@ -14,6 +14,13 @@ namespace MovieBookingAPI.Services
             _seatRepo = seatRepo;
             _screenRepo = screenRepo;
         }
+        /// <summary>
+        /// Generates seats for a screen based on the provided seat generation input DTO.
+        /// </summary>
+        /// <param name="seatgenerateDTO">The seat generation input DTO containing information about the seats to be generated.</param>
+        /// <returns>An enumerable collection of seat output DTOs containing information about the generated seats.</returns>
+        /// <exception cref="EntityNotFoundException">Thrown when the specified screen is not found.</exception>
+
         public async Task<IEnumerable<SeatOutputDTO>> GenerateSeatsForScreen(SeatGenerationInputDTO seatgenerateDTO)
         {
             var screen = await _screenRepo.Get(seatgenerateDTO.ScreenId);
@@ -48,6 +55,11 @@ namespace MovieBookingAPI.Services
             screen = await _screenRepo.Update(screen);
             return result;
         }
+        /// <summary>
+        /// Maps a seat entity to a seat output DTO.
+        /// </summary>
+        /// <param name="seat">The seat entity to be mapped.</param>
+        /// <returns>A seat output DTO containing information mapped from the provided seat entity.</returns>
 
         private SeatOutputDTO MapSeatToOutputDTO(Seat seat)
         {

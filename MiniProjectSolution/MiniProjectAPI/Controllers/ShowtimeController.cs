@@ -17,7 +17,7 @@ namespace MovieBookingAPI.Controllers
             _showtimeService = showtimeService;
         }
         [Authorize(Roles = "Admin")]
-        [HttpPost]
+        [HttpPost("AddShowtime")]
         [ProducesResponseType(typeof(ShowtimeReturnDTO), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ErrorModel), StatusCodes.Status401Unauthorized)]
         public async Task<ActionResult<ShowtimeReturnDTO>> AddShowtime(ShowtimeInputDTO showtimeInputDTO)

@@ -37,9 +37,12 @@ namespace MovieBookingAPI.Repositories
         public async Task<Screen> Get(int key)
         {
             var screens = await Get();
-            var screen = screens.ToList().Find(x => x.ScreenId == key);
-            if (screen != null)
-                return screen;
+            if (screens != null)
+            {
+                var screen = screens.ToList().Find(x => x.ScreenId == key);
+                if (screen == null) return null;
+                    return screen;
+            }
             return null;
         }
 
@@ -49,7 +52,7 @@ namespace MovieBookingAPI.Repositories
                 .Include(x => x.Theater)
                 .ToListAsync());
             if (result.Count == 0)
-                throw new NoEntitiesFoundException("Screen");
+                return null;
             return result;
         }
 

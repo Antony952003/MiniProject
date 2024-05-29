@@ -5,6 +5,7 @@ using MiniProjectAPI.Models;
 using MovieBookingAPI.Interfaces;
 using MovieBookingAPI.Models;
 using MovieBookingAPI.Models.DTOs.Booking;
+using System.Runtime.Intrinsics.X86;
 
 namespace MovieBookingAPI.Controllers
 {
@@ -22,6 +23,7 @@ namespace MovieBookingAPI.Controllers
         [ProducesResponseType(typeof(ErrorModel), StatusCodes.Status401Unauthorized)]
         public async Task<ActionResult<BookingReturnDTO>> AddBooking(BookingInputDTO bookingInputDTO)
         {
+            
             try
             {
                 var result = await _bookingService.MakeBooking(bookingInputDTO);
@@ -48,7 +50,25 @@ namespace MovieBookingAPI.Controllers
                 return NotFound(new ErrorModel(404, ex.Message));
             }
         }
-        [HttpPost]
+        [HttpGet]
+        [Route("GetAllUserBookings")]
+        [ProducesResponseType(typeof(List<BookingReturnDTO>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ErrorModel), StatusCodes.Status401Unauthorized)]
+        public async Task<ActionResult<List<BookingReturnDTO>>> GetAllUserBookings()
+        {
+            try
+            {
+                var userstring = User.Claims.FirstOrDefault(x => x.Type == "uid").Value;
+                var userid = Convert.ToInt32(userstring);
+                var result = await _bookingService.GetAllUserBookings(userid);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return NotFound(new ErrorModel(404, ex.Message));
+            }
+        }
+        [HttpGet]
         [Route("GetBookingById")]
         [ProducesResponseType(typeof(BookingReturnDTO), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ErrorModel), StatusCodes.Status401Unauthorized)]

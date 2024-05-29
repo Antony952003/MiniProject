@@ -13,13 +13,32 @@ namespace MovieBookingAPI.Services
         {
             _snackRepo = snackRepo;
         }
-        public async Task<Snack> AddSnack(SnackInputDTO snackInputDTO)
+        /// <summary>
+        /// Adds a new snack to the system.
+        /// </summary>
+        /// <param name="snackInputDTO">The snack input DTO containing information about the snack to be added.</param>
+        /// <returns>A snack return DTO containing information about the added snack.</returns>
+
+        public async Task<SnackReturnDTO> AddSnack(SnackInputDTO snackInputDTO)
         {
             Snack snack = null;
             snack = MapSnackInput(snackInputDTO);
             snack = await _snackRepo.Add(snack);
-            return snack;
+
+            return new SnackReturnDTO()
+            {
+                Name = snack.Name,
+                Price = snack.Price,
+                SnackId = snack.SnackId,
+            };
         }
+        /// <summary>
+        /// Retrieves the snack ID by its name.
+        /// </summary>
+        /// <param name="name">The name of the snack to retrieve the ID for.</param>
+        /// <returns>The snack entity corresponding to the provided name.</returns>
+        /// <exception cref="NoEntitiesFoundException">Thrown when no snacks are found.</exception>
+
         public async Task<Snack> GetSnackIdByName(string name)
         {
             var snacks = await _snackRepo.Get();
@@ -27,6 +46,31 @@ namespace MovieBookingAPI.Services
             var snack = snacks.FirstOrDefault(x => x.Name == name);
             return snack;
         }
+        /// <summary>
+        /// Updates the price of a snack by its name.
+        /// </summary>
+        /// <param name="name">The name of the snack to update the price for.</param>
+        /// <param name="newPrice">The new price to be assigned to the snack.</param>
+        /// <returns>A snack return DTO containing information about the updated snack.</returns>
+
+        public async Task<SnackReturnDTO> UpdateSnackPrice(string name, decimal newPrice)
+        {
+            var snack = await GetSnackIdByName(name);
+            snack.Price = newPrice;
+            snack = await _snackRepo.Update(snack);
+            return new SnackReturnDTO()
+            {
+                Name = snack.Name,
+                Price = snack.Price,
+                SnackId = snack.SnackId,
+            };
+
+        }
+        /// <summary>
+        /// Maps a snack input DTO to a snack entity.
+        /// </summary>
+        /// <param name="snackInputDTO">The snack input DTO to be mapped.</param>
+        /// <returns>A snack entity mapped from the provided snack input DTO.</returns>
 
         private Snack? MapSnackInput(SnackInputDTO snackInputDTO)
         {

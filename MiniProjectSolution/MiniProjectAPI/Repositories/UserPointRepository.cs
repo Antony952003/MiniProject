@@ -53,7 +53,7 @@ namespace MovieBookingAPI.Repositories
             var userpoint = userpoints.ToList().FirstOrDefault(x => x.UserPointsId == key);
             if(userpoint  != null)
                 return userpoint;
-            throw new EntityNotFoundException("UserPoint");
+            return null;
         }
 
         public async Task<IEnumerable<UserPoint>> Get()
@@ -63,16 +63,26 @@ namespace MovieBookingAPI.Repositories
                 .ToListAsync();
             if(userpoints != null)
                 return userpoints;
-            throw new NoEntitiesFoundException("UserPoints");
+            return null;
         }
 
-        public async Task<IEnumerable<UserPoint>> GetUserPointsByUserId(int userId)
+        public async Task<UserPoint> GetUserPointsByUserId(int userId)
         {
             var userpoints = await Get();
-            var userpointsofuser = userpoints.ToList().FindAll(x => x.UserId == userId);
+            var userpointsofuser = userpoints.ToList().Find(x => x.UserId == userId);
             if (userpointsofuser != null)
                 return userpointsofuser;
             throw new EntityNotFoundException("UserPoint");
+        }
+        public async Task DeductPoints(int userId, int points)
+        {
+            var userpoint = await GetUserPointsByUserId(userId);
+            userpoint.Points -= points;
+
+            if (userpoint.Points < 0)
+            {
+                throw new InvalidOperationException("User does not have enough points to deduct");
+            }
         }
     }
 }

@@ -14,6 +14,13 @@ namespace MovieBookingAPI.Services
         private readonly IRepository<int, Booking> _bookingRepo;
         private readonly ITransaction _transactionService;
 
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CancellationService"/> class.
+        /// </summary>
+        /// <param name="bookingRepo">The repository for Booking entities.</param>
+        /// <param name="cancellationRepo">The repository for Cancellation entities.</param>
+        /// <param name="transactionService">The transaction service.</param>
         public CancellationService(IRepository<int, Booking> bookingRepo,
             IRepository<int, Cancellation> cancellationRepo,
             ITransaction transactionService) { 
@@ -21,6 +28,11 @@ namespace MovieBookingAPI.Services
             _bookingRepo = bookingRepo;
             _transactionService = transactionService;
         }
+        /// <summary>
+        /// Processes the cancellation of a booking.
+        /// </summary>
+        /// <param name="cancellationInputDTO">The cancellation input DTO.</param>
+        /// <returns>A cancellation return DTO containing information about the cancellation.</returns>
         public async Task<CancellationReturnDTO> ProcessCancellation(CancellationInputDTO cancellationInputDTO)
         {
             try

@@ -20,6 +20,14 @@ namespace MovieBookingAPI.Services
             _paymentRepo = paymentRepo;
             _transactionRepo = transactionRepo;
         }
+        /// <summary>
+        /// Processes a payment for a booking.
+        /// </summary>
+        /// <param name="paymentInputDTO">The payment input DTO containing information about the payment.</param>
+        /// <returns>A payment return DTO containing information about the completed payment.</returns>
+        /// <exception cref="EntityNotFoundException">Thrown when the booking associated with the payment is not found.</exception>
+        /// <exception cref="Exception">Thrown when the payment has already been completed for the booking, or an unexpected error occurs during payment processing.</exception>
+
         public async Task<PaymentReturnDTO> MakePayment(PaymentInputDTO paymentInputDTO)
         {
             try

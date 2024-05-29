@@ -37,10 +37,11 @@ namespace MovieBookingAPI.Repositories
         public async Task<Seat> Get(int key)
         {
             var seats = await Get();
+            if (seats == null) return null;
             var seat = seats.ToList().Find(x => x.SeatId == key);
             if (seat != null)
                 return seat;
-            throw new EntityNotFoundException("Seat");
+            return null;
         }
 
         public async Task<IEnumerable<Seat>> Get()
@@ -49,7 +50,7 @@ namespace MovieBookingAPI.Repositories
                 .Include(x => x.ShowtimeSeats)
                 .ToListAsync();
             if (result.Count == 0)
-                throw new NoEntitiesFoundException("Seat");
+                return null;
             return result;
         }
 

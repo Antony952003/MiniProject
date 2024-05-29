@@ -17,6 +17,13 @@ namespace MovieBookingAPI.Services
             _movieRepo = movieRepo;
             _screenRepo = screenRepo;
         }
+        /// <summary>
+        /// Adds a new showtime to the system.
+        /// </summary>
+        /// <param name="showtimeInputDTO">The showtime input DTO containing information about the showtime to be added.</param>
+        /// <returns>A showtime return DTO containing information about the added showtime.</returns>
+        /// <exception cref="Exception">Thrown when an unexpected error occurs while adding the showtime.</exception>
+
         public async Task<ShowtimeReturnDTO> AddShowtime(ShowtimeInputDTO showtimeInputDTO)
         {
             Showtime showtime = null;
@@ -37,6 +44,13 @@ namespace MovieBookingAPI.Services
                 throw new Exception(ex.Message);
             }
         }
+        /// <summary>
+        /// Maps a showtime entity to a showtime return DTO.
+        /// </summary>
+        /// <param name="showtime">The showtime entity to be mapped.</param>
+        /// <param name="moviename">The name of the movie associated with the showtime.</param>
+        /// <param name="screenname">The name of the screen associated with the showtime.</param>
+        /// <returns>A showtime return DTO containing information mapped from the provided showtime entity.</returns>
 
         private ShowtimeReturnDTO? MapShowtimeToReturn(Showtime showtime, string moviename, string screenname)
         {
@@ -48,6 +62,11 @@ namespace MovieBookingAPI.Services
             };
             return showtimeReturnDTO;
         }
+        /// <summary>
+        /// Maps a showtime input DTO to a showtime entity.
+        /// </summary>
+        /// <param name="showtimeInputDTO">The showtime input DTO to be mapped.</param>
+        /// <returns>A showtime entity mapped from the provided showtime input DTO.</returns>
 
         private Showtime? MapInputToShowtime(ShowtimeInputDTO showtimeInputDTO)
         {

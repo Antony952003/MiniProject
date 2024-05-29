@@ -17,6 +17,12 @@ namespace MovieBookingAPI.Services
             _secretKey = configuration.GetSection("TokenKey").GetSection("JWT").Value.ToString();
             _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_secretKey));
         }
+        /// <summary>
+        /// Generates a JWT token for the specified user.
+        /// </summary>
+        /// <param name="user">The user for whom the token is generated.</param>
+        /// <returns>A JWT token string.</returns>
+
         public string GenerateToken(User user)
         {
             string token = string.Empty;

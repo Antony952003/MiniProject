@@ -34,8 +34,8 @@ namespace MovieBookingAPI.Repositories
 
         public async Task<Movie> Get(int key)
         {
-            var movies = await _context.Movies.ToListAsync();
-            var movie = movies.Find(x => x.MovieId == key);
+            var movies = await Get();
+            var movie = movies.ToList().Find(x => x.MovieId == key);
             if (movie != null)
                 return movie;
             return null;
@@ -43,7 +43,10 @@ namespace MovieBookingAPI.Repositories
 
         public async Task<IEnumerable<Movie>> Get()
         {
-            var result = (await _context.Movies.ToListAsync());
+            var result = (await _context.Movies
+                .Include(x => x.Reviews)
+                .Include(x => x.Showtimes)
+                .ToListAsync());
             if (result.Count == 0)
                 return null;
             return result;
