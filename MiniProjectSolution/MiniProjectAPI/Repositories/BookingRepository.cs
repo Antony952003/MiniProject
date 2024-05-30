@@ -36,6 +36,7 @@ namespace MovieBookingAPI.Repositories
         public async Task<Booking> Get(int key)
         {
             var bookings = await Get();
+            if (bookings == null) return null;
             var booking = bookings.ToList().Find(x => x.BookingId == key);
             if (booking != null)
                 return booking;

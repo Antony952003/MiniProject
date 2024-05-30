@@ -87,6 +87,11 @@ namespace MovieBookingAPI.Services
                     OrderTotal = payment.Amount
                 };
             }
+            catch (EntityNotFoundException ex)
+            {
+                await _transactionRepo.RollbackTransactionAsync();
+                throw;
+            }
             catch (Exception ex)
             {
                 await _transactionRepo.RollbackTransactionAsync();

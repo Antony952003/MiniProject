@@ -315,7 +315,11 @@ namespace MovieBookingAPI.Services
             }
 
             var userPoints = await _userPointsRepository.Get();
-            var userPoint = userPoints.ToList().Find(x => x.UserId == userId); 
+            UserPoint userPoint = null;
+            if (userPoints != null)
+            {
+                userPoint = userPoints.ToList().Find(x => x.UserId == userId);
+            }
             if (userPoint == null)
             {
                 userPoint = new UserPoint

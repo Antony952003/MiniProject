@@ -33,7 +33,6 @@ namespace MovieBookingAPI.Services
             {
                 int columnCount = seatgenerateDTO.ColumnsPerRow[rowRange];
                 decimal price = seatgenerateDTO.RowPrices[rowRange];
-
                 for (char row = rowRange[0]; row <= rowRange[2]; row++)
                 {
                     for (int column = 1; column <= columnCount; column++)

@@ -46,11 +46,16 @@ namespace MovieBookingAPI.Services
                         SeatId = seat.SeatId,
                         ShowtimeId = showtimeseatGenerateDTO.ShowtimeId,
                         Status = "Available",
+                        
                     };
-                    await _showtimeseatRepo.Add(showtimeSeat);
+                    showtimeSeat = await _showtimeseatRepo.Add(showtimeSeat);
                     result.Add(MapShowtimeSeatWithReturnDTO(showtimeSeat));
                 }
                 return result;
+            }
+            catch(EntityNotFoundException ex)
+            {
+                throw;
             }
             catch (Exception ex)
             {
@@ -67,6 +72,7 @@ namespace MovieBookingAPI.Services
         public async Task<List<ShowtimeSeatReturnDTO>> GetAvailableShowtimeSeats(int showtimeId)
         {
             var showtimeseats = await _showtimeseatRepo.Get();
+            if (showtimeseats == null) throw new NoEntitiesFoundException("ShowtimeSeat");
             showtimeseats = showtimeseats.Where(x => x.Status == "Available" && x.ShowtimeId == showtimeId);
             if(showtimeseats == null)
             {
@@ -142,7 +148,7 @@ namespace MovieBookingAPI.Services
         {
 
             var AllShowtimeseats = await _showtimeseatRepo.Get();
-            if (!AllShowtimeseats.Any()) throw new NoEntitiesFoundException("ShowtimeSeat");
+            if (AllShowtimeseats == null) throw new NoEntitiesFoundException("ShowtimeSeat");
             var result = AllShowtimeseats.ToList()
                 .Where(ss => ss.ShowtimeId == showtimeId && seatnumbers
                 .Contains(ss.Seat.SeatNumber))
@@ -191,7 +197,7 @@ namespace MovieBookingAPI.Services
         public async Task<List<ShowtimeSeat>> UpdateShowtimeSeatsStatus(int showtimeId, List<int> showtimeseatIds, string status)
         {
             var AllShowtimeseats = await _showtimeseatRepo.Get();
-            if (!AllShowtimeseats.Any()) throw new NoEntitiesFoundException("ShowtimeSeat");
+            if (AllShowtimeseats == null) throw new NoEntitiesFoundException("ShowtimeSeat");
             var showtimeSeats = AllShowtimeseats.ToList()
                 .Where(ss => ss.ShowtimeId == showtimeId && showtimeseatIds.Contains(ss.ShowtimeSeatId))
                 .ToList();

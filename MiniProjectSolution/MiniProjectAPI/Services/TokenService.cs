@@ -1,5 +1,6 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using MiniProjectAPI.Models;
+using MovieBookingAPI.Exceptions;
 using MovieBookingAPI.Interfaces;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;

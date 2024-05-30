@@ -3,44 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\VC\\Desktop\\Visual Studio\\MiniProjectSolution\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5FE079B1-5725-490D-8FC7-8FDFCC61FFB6}|MiniProjectAPI\\MovieBookingAPI.csproj|c:\\users\\vc\\desktop\\visual studio\\miniprojectsolution\\miniprojectapi\\models\\dtos\\snack\\snackreturndto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5FE079B1-5725-490D-8FC7-8FDFCC61FFB6}|MiniProjectAPI\\MovieBookingAPI.csproj|solutionrelative:miniprojectapi\\models\\dtos\\snack\\snackreturndto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5FE079B1-5725-490D-8FC7-8FDFCC61FFB6}|MiniProjectAPI\\MovieBookingAPI.csproj|c:\\users\\vc\\desktop\\visual studio\\miniprojectsolution\\miniprojectapi\\models\\dtos\\snack\\snackinputdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5FE079B1-5725-490D-8FC7-8FDFCC61FFB6}|MiniProjectAPI\\MovieBookingAPI.csproj|solutionrelative:miniprojectapi\\models\\dtos\\snack\\snackinputdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5FE079B1-5725-490D-8FC7-8FDFCC61FFB6}|MiniProjectAPI\\MovieBookingAPI.csproj|c:\\users\\vc\\desktop\\visual studio\\miniprojectsolution\\miniprojectapi\\services\\snackservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5FE079B1-5725-490D-8FC7-8FDFCC61FFB6}|MiniProjectAPI\\MovieBookingAPI.csproj|solutionrelative:miniprojectapi\\services\\snackservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5FE079B1-5725-490D-8FC7-8FDFCC61FFB6}|MiniProjectAPI\\MovieBookingAPI.csproj|c:\\users\\vc\\desktop\\visual studio\\miniprojectsolution\\miniprojectapi\\services\\bookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5FE079B1-5725-490D-8FC7-8FDFCC61FFB6}|MiniProjectAPI\\MovieBookingAPI.csproj|solutionrelative:miniprojectapi\\services\\bookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7E52927C-454E-45E0-BDB2-D792EFEDC16C}|MovieBookingUnitTests\\MovieBookingUnitTests.csproj|c:\\users\\vc\\desktop\\visual studio\\miniprojectsolution\\moviebookingunittests\\repositorytests\\showtimeseatrepositorytest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7E52927C-454E-45E0-BDB2-D792EFEDC16C}|MovieBookingUnitTests\\MovieBookingUnitTests.csproj|solutionrelative:moviebookingunittests\\repositorytests\\showtimeseatrepositorytest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5FE079B1-5725-490D-8FC7-8FDFCC61FFB6}|MiniProjectAPI\\MovieBookingAPI.csproj|c:\\users\\vc\\desktop\\visual studio\\miniprojectsolution\\miniprojectapi\\repositories\\showtimeseatrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5FE079B1-5725-490D-8FC7-8FDFCC61FFB6}|MiniProjectAPI\\MovieBookingAPI.csproj|solutionrelative:miniprojectapi\\repositories\\showtimeseatrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7E52927C-454E-45E0-BDB2-D792EFEDC16C}|MovieBookingUnitTests\\MovieBookingUnitTests.csproj|c:\\users\\vc\\desktop\\visual studio\\miniprojectsolution\\moviebookingunittests\\repositorytests\\movierepositorytest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7E52927C-454E-45E0-BDB2-D792EFEDC16C}|MovieBookingUnitTests\\MovieBookingUnitTests.csproj|solutionrelative:moviebookingunittests\\repositorytests\\movierepositorytest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5FE079B1-5725-490D-8FC7-8FDFCC61FFB6}|MiniProjectAPI\\MovieBookingAPI.csproj|c:\\users\\vc\\desktop\\visual studio\\miniprojectsolution\\miniprojectapi\\models\\seat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5FE079B1-5725-490D-8FC7-8FDFCC61FFB6}|MiniProjectAPI\\MovieBookingAPI.csproj|solutionrelative:miniprojectapi\\models\\seat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5FE079B1-5725-490D-8FC7-8FDFCC61FFB6}|MiniProjectAPI\\MovieBookingAPI.csproj|c:\\users\\vc\\desktop\\visual studio\\miniprojectsolution\\miniprojectapi\\contexts\\moviebookingcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5FE079B1-5725-490D-8FC7-8FDFCC61FFB6}|MiniProjectAPI\\MovieBookingAPI.csproj|solutionrelative:miniprojectapi\\contexts\\moviebookingcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5FE079B1-5725-490D-8FC7-8FDFCC61FFB6}|MiniProjectAPI\\MovieBookingAPI.csproj|c:\\users\\vc\\desktop\\visual studio\\miniprojectsolution\\miniprojectapi\\models\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5FE079B1-5725-490D-8FC7-8FDFCC61FFB6}|MiniProjectAPI\\MovieBookingAPI.csproj|solutionrelative:miniprojectapi\\models\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5FE079B1-5725-490D-8FC7-8FDFCC61FFB6}|MiniProjectAPI\\MovieBookingAPI.csproj|c:\\users\\vc\\desktop\\visual studio\\miniprojectsolution\\miniprojectapi\\models\\showtime.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5FE079B1-5725-490D-8FC7-8FDFCC61FFB6}|MiniProjectAPI\\MovieBookingAPI.csproj|solutionrelative:miniprojectapi\\models\\showtime.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,140 +14,31 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:3:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{320fd13f-632f-4b16-9527-a1adfe555f6c}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "SnackReturnDTO.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\Visual Studio\\MiniProjectSolution\\MiniProjectAPI\\Models\\DTOs\\Snack\\SnackReturnDTO.cs",
-              "RelativeDocumentMoniker": "MiniProjectAPI\\Models\\DTOs\\Snack\\SnackReturnDTO.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\Visual Studio\\MiniProjectSolution\\MiniProjectAPI\\Models\\DTOs\\Snack\\SnackReturnDTO.cs",
-              "RelativeToolTip": "MiniProjectAPI\\Models\\DTOs\\Snack\\SnackReturnDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Title": "Showtime.cs",
+              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\Visual Studio\\MiniProjectSolution\\MiniProjectAPI\\Models\\Showtime.cs",
+              "RelativeDocumentMoniker": "MiniProjectAPI\\Models\\Showtime.cs",
+              "ToolTip": "C:\\Users\\VC\\Desktop\\Visual Studio\\MiniProjectSolution\\MiniProjectAPI\\Models\\Showtime.cs",
+              "RelativeToolTip": "MiniProjectAPI\\Models\\Showtime.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAswAoAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-29T19:09:35.053Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SnackInputDTO.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\Visual Studio\\MiniProjectSolution\\MiniProjectAPI\\Models\\DTOs\\Snack\\SnackInputDTO.cs",
-              "RelativeDocumentMoniker": "MiniProjectAPI\\Models\\DTOs\\Snack\\SnackInputDTO.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\Visual Studio\\MiniProjectSolution\\MiniProjectAPI\\Models\\DTOs\\Snack\\SnackInputDTO.cs",
-              "RelativeToolTip": "MiniProjectAPI\\Models\\DTOs\\Snack\\SnackInputDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-29T19:09:31.091Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SnackService.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\Visual Studio\\MiniProjectSolution\\MiniProjectAPI\\Services\\SnackService.cs",
-              "RelativeDocumentMoniker": "MiniProjectAPI\\Services\\SnackService.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\Visual Studio\\MiniProjectSolution\\MiniProjectAPI\\Services\\SnackService.cs",
-              "RelativeToolTip": "MiniProjectAPI\\Services\\SnackService.cs",
-              "ViewState": "AQIAADQAAAAAAAAAAAAiwFAAAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-29T19:08:36.188Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "BookingService.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\Visual Studio\\MiniProjectSolution\\MiniProjectAPI\\Services\\BookingService.cs",
-              "RelativeDocumentMoniker": "MiniProjectAPI\\Services\\BookingService.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\Visual Studio\\MiniProjectSolution\\MiniProjectAPI\\Services\\BookingService.cs",
-              "RelativeToolTip": "MiniProjectAPI\\Services\\BookingService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-29T19:08:32.806Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ShowtimeSeatRepository.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\Visual Studio\\MiniProjectSolution\\MiniProjectAPI\\Repositories\\ShowtimeSeatRepository.cs",
-              "RelativeDocumentMoniker": "MiniProjectAPI\\Repositories\\ShowtimeSeatRepository.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\Visual Studio\\MiniProjectSolution\\MiniProjectAPI\\Repositories\\ShowtimeSeatRepository.cs",
-              "RelativeToolTip": "MiniProjectAPI\\Repositories\\ShowtimeSeatRepository.cs",
-              "ViewState": "AQIAAD0AAAAAAAAAAAAkwDUAAAAcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-29T18:53:37.791Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Seat.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\Visual Studio\\MiniProjectSolution\\MiniProjectAPI\\Models\\Seat.cs",
-              "RelativeDocumentMoniker": "MiniProjectAPI\\Models\\Seat.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\Visual Studio\\MiniProjectSolution\\MiniProjectAPI\\Models\\Seat.cs",
-              "RelativeToolTip": "MiniProjectAPI\\Models\\Seat.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAuAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-29T18:28:13.088Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "MovieBookingContext.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\Visual Studio\\MiniProjectSolution\\MiniProjectAPI\\Contexts\\MovieBookingContext.cs",
-              "RelativeDocumentMoniker": "MiniProjectAPI\\Contexts\\MovieBookingContext.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\Visual Studio\\MiniProjectSolution\\MiniProjectAPI\\Contexts\\MovieBookingContext.cs",
-              "RelativeToolTip": "MiniProjectAPI\\Contexts\\MovieBookingContext.cs",
-              "ViewState": "AQIAAFcAAAAAAAAAAAAqwGcAAAAzAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-29T18:22:41.536Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Booking.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\Visual Studio\\MiniProjectSolution\\MiniProjectAPI\\Models\\Booking.cs",
-              "RelativeDocumentMoniker": "MiniProjectAPI\\Models\\Booking.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\Visual Studio\\MiniProjectSolution\\MiniProjectAPI\\Models\\Booking.cs",
-              "RelativeToolTip": "MiniProjectAPI\\Models\\Booking.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAuwBUAAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-29T18:20:31.867Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ShowtimeSeatRepositoryTest.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\Visual Studio\\MiniProjectSolution\\MovieBookingUnitTests\\RepositoryTests\\ShowtimeSeatRepositoryTest.cs",
-              "RelativeDocumentMoniker": "MovieBookingUnitTests\\RepositoryTests\\ShowtimeSeatRepositoryTest.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\Visual Studio\\MiniProjectSolution\\MovieBookingUnitTests\\RepositoryTests\\ShowtimeSeatRepositoryTest.cs",
-              "RelativeToolTip": "MovieBookingUnitTests\\RepositoryTests\\ShowtimeSeatRepositoryTest.cs",
-              "ViewState": "AQIAAHEAAAAAAAAAAAAawHgAAAAzAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-29T18:18:15.535Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "MovieRepositoryTest.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\Visual Studio\\MiniProjectSolution\\MovieBookingUnitTests\\RepositoryTests\\MovieRepositoryTest.cs",
-              "RelativeDocumentMoniker": "MovieBookingUnitTests\\RepositoryTests\\MovieRepositoryTest.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\Visual Studio\\MiniProjectSolution\\MovieBookingUnitTests\\RepositoryTests\\MovieRepositoryTest.cs",
-              "RelativeToolTip": "MovieBookingUnitTests\\RepositoryTests\\MovieRepositoryTest.cs",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAAADAAAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-29T18:39:53.324Z",
+              "WhenOpened": "2024-05-30T10:04:15.693Z",
               "EditorCaption": ""
             }
           ]

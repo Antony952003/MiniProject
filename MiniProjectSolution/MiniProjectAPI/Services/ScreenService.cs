@@ -81,6 +81,10 @@ namespace MovieBookingAPI.Services
         public async Task<List<ScreenOutputDTO>> GetScreensByTheaterName(string theaterName)
         {
             var screens = await _repository.Get();
+            if(screens == null)
+            {
+                throw new NoEntitiesFoundException("Screen");
+            }
             screens = screens.ToList().FindAll(x => x.Theater.Name == theaterName).ToList();
             if(screens == null)
             {
@@ -104,6 +108,10 @@ namespace MovieBookingAPI.Services
         public async Task<ScreenOutputDTO> GetScreenByScreenName(string screenName)
         {
             var screens = await _repository.Get();
+            if(screens == null)
+            {
+                throw new NoEntitiesFoundException("Screen");
+            }
             var screen = screens.ToList().FirstOrDefault(x => x.Name == screenName);
             if(screen  != null) 
                 return MapScreenWithOutputDTO(screen, screen.Theater.Name);

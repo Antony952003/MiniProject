@@ -113,6 +113,21 @@ namespace MovieBookingAPI.Services
                 };
 
             }
+            catch(CancellationNotAllowedException ex)
+            {
+                await _transactionService.RollbackTransactionAsync();
+                throw;
+            }
+            catch(BookingDoesNotHaveSeatException ex)
+            {
+                await _transactionService.RollbackTransactionAsync();
+                throw;
+            }
+            catch(EntityNotFoundException ex)
+            {
+                await _transactionService.RollbackTransactionAsync();
+                throw;
+            }
             catch(Exception ex)
             {
                 await _transactionService.RollbackTransactionAsync();
