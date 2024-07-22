@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie</title>
+    <link rel="stylesheet" href="../css/movie.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  </head>
+  <body>
+    <div id="loader" class="loader">
+      <div class="loader-inner"></div>
+    </div>
+    <!-- NavBar -->
+    <div class="nav-wrapper">
+      <div class="container">
+        <div class="nav">
+          <a href="#" class="logo">
+            <i class="bx bx-movie-play bx-tada main-color"></i
+            ><span class="main-color">M</span>ovie
+            <span class="main-color">S</span>tudio
+          </a>
+          <ul class="nav-menu" id="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="movieslisting.html">Movies</a></li>
+            <li><a href="#">Shows</a></li>
+            <li><a href="#">Sports</a></li>
+            <li><a href="#">About</a></li>
+            <li class="location">
+              <span>Chennai</span>
+              <i class="bx bx-chevron-down down-button"></i>
+            </li>
+            <li>
+              <a href="login.html" class="btn btn-hover">
+                <span id="logged-in">Sign in</span>
+              </a>
+            </li>
+          </ul>
+          <div class="account-details-nav">
+            <div class="ad-nav-header">
+              <div class="ad-nav-header-comp-1">
+                <h3>Hey !!</h3>
+                <span id="edit-profile">Edit Profile</span>
+              </div>
+              <div class="ad-nav-header-comp-2">
+                <img class="user-profile-image" src="" alt="" />
+                <h4 class="name-field"></h4>
+              </div>
+            </div>
+            <ul class="ad-nav-details">
+              <li>
+                <i class="bx bxs-shopping-bags"></i>
+                <div class="ad-nav-content">
+                  <h4>Your Orders</h4>
+                  <span>View all your bookings, purchases</span>
+                </div>
+              </li>
+              <li>
+                <i class="bx bx-message-dots"></i>
+                <div class="ad-nav-content">
+                  <h4>Help & Support</h4>
+                  <span>View commonly asked questions</span>
+                </div>
+              </li>
+              <li>
+                <i class="bx bxs-gift"></i>
+                <div class="ad-nav-content">
+                  <h4>Rewards</h4>
+                  <span>View reward points & unlock new ones</span>
+                </div>
+              </li>
+              <li>
+                <i class="bx bx-cog"></i>
+                <div class="ad-nav-content">
+                  <h4>Account & Settings</h4>
+                  <span>Location, Payments, Permissions & More</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <!-- MOBILE MENU TOGGLE -->
+          <div class="hamburger-menu" id="hamburger-menu">
+            <div class="hamburger"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- NavBar End -->
+    <!-- Location Popup -->
+    <div class="popup-location top-down">
+      <div class="search-field">
+        <i class="bx bx-search"></i>
+        <input type="text" placeholder="Search for your city" />
+      </div>
+      <div class="detect-my-location">
+        <i class="bx bx-current-location"></i>
+        <p>Detect my location</p>
+      </div>
+      <div class="popular-cities">
+        <p>Popular Cities</p>
+        <ul class="pcities">
+          <li><button>Mumbai</button></li>
+          <li><button>Delhi</button></li>
+          <li><button>Bengaluru</button></li>
+          <li><button>Hydrabad</button></li>
+          <li><button>Ahmedabad</button></li>
+          <li><button>Trichy</button></li>
+          <li><button>Chandigarh</button></li>
+          <li><button>Chennai</button></li>
+          <li><button>Pune</button></li>
+          <li><button>Kolkata</button></li>
+          <li><button>Kochi</button></li>
+          <li><button>Villupuram</button></li>
+          <li><button>Cheyyar</button></li>
+        </ul>
+        <button class="view-all-btn">View All Cities</button>
+      </div>
+    </div>
+    <!-- End Location Popup -->
+    <!-- Main Container -->
+    <section class="main-container"></section>
+    <div class="popup-rating top-down" id="popup">
+      <div class="ratings">
+        <p>How would you rate this movie?</p>
+        <div class="rate-stars" id="rateStars">
+          <i class="bx bx-star" data-value="1"></i>
+          <i class="bx bx-star" data-value="2"></i>
+          <i class="bx bx-star" data-value="3"></i>
+          <i class="bx bx-star" data-value="4"></i>
+          <i class="bx bx-star" data-value="5"></i>
+          <i class="bx bx-star" data-value="6"></i>
+          <i class="bx bx-star" data-value="7"></i>
+          <i class="bx bx-star" data-value="8"></i>
+          <i class="bx bx-star" data-value="9"></i>
+          <i class="bx bx-star" data-value="10"></i>
+        </div>
+      </div>
+      <div class="hashtags">
+        <input
+          type="text"
+          id="hashtagInput"
+          placeholder="Type hashtag and click Add Hashtag"
+        />
+        <button id="addHashtag">Add Hashtag</button>
+      </div>
+      <div class="hashtag-list" id="hashtagList"></div>
+      <div class="comment">
+        <p>Explore more, Can elaborately explain your experience !!</p>
+        <textarea
+          id="comment"
+          placeholder="Give your thoughts about the movie!!"
+        ></textarea>
+      </div>
+      <a href="#" class="btn btn-hover">
+        <span id="review-submit">Submit Review</span>
+      </a>
+    </div>
+    <script defer src="../js/movie.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  </body>
+</html>

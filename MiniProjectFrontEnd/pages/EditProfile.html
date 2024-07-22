@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EditProfile</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/edit__profile.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+  </head>
+  <body>
+    <div class="nav-wrapper">
+      <div class="container">
+        <div class="nav">
+          <a href="#" class="logo tohome">
+            <i class="bx bx-movie-play bx-tada main-color"></i
+            ><span class="main-color">M</span>ovie
+            <span class="main-color">S</span>tudio
+          </a>
+          <ul class="nav-menu" id="nav-menu">
+            <li><a href="#" class="tohome">Home</a></li>
+            <li><a href="#">Movies</a></li>
+            <li><a href="#">Shows</a></li>
+            <li><a href="#">Sports</a></li>
+            <li><a href="#">About</a></li>
+            <li>
+              <a href="login.html" class="btn btn-hover">
+                <span id="logged-in">Sign in</span>
+              </a>
+            </li>
+            <li>
+              <div class="user">
+                <img class="user-profile-image" src="" alt="" />
+                <h4>Hey <span class="name-field"></span> !!</h4>
+              </div>
+            </li>
+          </ul>
+          <div class="account-details-nav">
+            <div class="ad-nav-header">
+              <div class="ad-nav-header-comp-1">
+                <h3>Hey !!</h3>
+                <span>Edit Profile</span>
+              </div>
+              <div class="ad-nav-header-comp-2">
+                <img class="user-profile-image" src="" alt="" />
+                <h4 class="name-field"></h4>
+              </div>
+            </div>
+            <ul class="ad-nav-details">
+              <li>
+                <i class="bx bxs-shopping-bags"></i>
+                <div class="ad-nav-content">
+                  <h4>Your Orders</h4>
+                  <span>View all your bookings, purchases</span>
+                </div>
+              </li>
+              <li>
+                <i class="bx bx-message-dots"></i>
+                <div class="ad-nav-content">
+                  <h4>Help & Support</h4>
+                  <span>View commonly asked questions</span>
+                </div>
+              </li>
+              <li>
+                <i class="bx bxs-gift"></i>
+                <div class="ad-nav-content">
+                  <h4>Rewards</h4>
+                  <span>View reward points & unlock new ones</span>
+                </div>
+              </li>
+              <li>
+                <i class="bx bx-cog"></i>
+                <div class="ad-nav-content">
+                  <h4>Account & Settings</h4>
+                  <span>Location, Payments, Permissions & More</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <!-- MOBILE MENU TOGGLE -->
+          <div class="hamburger-menu" id="hamburger-menu">
+            <div class="hamburger"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="edit-container">
+      <div class="form-container">
+        <div id="user-image">
+          <img class="user-profile-image" src="" alt="" />
+        </div>
+        <div class="form-header">
+          <h2>Edit User Details</h2>
+          <button id="edit-btn"><i class="bx bx-edit"></i></button>
+        </div>
+        <form id="user-form">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" readonly />
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" readonly />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="phone" readonly />
+          </div>
+          <div class="form-group">
+            <label for="image">Image:</label>
+            <input type="file" id="image" name="image" readonly />
+          </div>
+          <div class="form-group">
+            <input
+              type="url"
+              id="imageurl"
+              name="imageurl"
+              placeholder="or enter image URL"
+              readonly
+            />
+          </div>
+          <div class="form-actions">
+            <button type="button" id="save-btn">Save</button>
+            <button type="button" id="clear-btn">Clear</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script src="../js/edit__profile.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+</html>

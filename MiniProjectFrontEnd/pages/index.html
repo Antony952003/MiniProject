@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Studio</title>
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./Assets/Images/ticket-2974645_1920.jpg"
+    />
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- OWL CAROUSEL -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+      integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+      crossorigin="anonymous"
+    />
+    <!-- BOX ICONS -->
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- APP CSS -->
+    <link rel="stylesheet" href="../css/grid.css" />
+    <link rel="stylesheet" href="../css/app.css" />
+  </head>
+
+  <body>
+    <!-- NAV -->
+    <div class="nav-wrapper">
+      <div class="container">
+        <div class="nav">
+          <a href="#" class="logo">
+            <i class="bx bx-movie-play bx-tada main-color"></i
+            ><span class="main-color">M</span>ovie
+            <span class="main-color">S</span>tudio
+          </a>
+          <ul class="nav-menu" id="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="movieslisting.html">Movies</a></li>
+            <li><a href="#">Shows</a></li>
+            <li><a href="#">Sports</a></li>
+            <li><a href="#">About</a></li>
+            <li>
+              <a href="login.html" class="btn btn-hover">
+                <span id="logged-in">Sign in</span>
+              </a>
+            </li>
+            <li>
+              <div class="user">
+                <img class="user-profile-image" src="" alt="" />
+                <h4>Hey <span class="name-field"></span> !!</h4>
+              </div>
+            </li>
+          </ul>
+          <div class="account-details-nav">
+            <div class="ad-nav-header">
+              <div class="ad-nav-header-comp-1">
+                <h3>Hey !!</h3>
+                <span id="edit-profile">Edit Profile</span>
+              </div>
+              <div class="ad-nav-header-comp-2">
+                <img class="user-profile-image" src="" alt="" />
+                <h4 class="name-field"></h4>
+              </div>
+            </div>
+            <ul class="ad-nav-details">
+              <li>
+                <i class="bx bxs-shopping-bags"></i>
+                <div class="ad-nav-content">
+                  <h4>Your Orders</h4>
+                  <span>View all your bookings, purchases</span>
+                </div>
+              </li>
+              <li>
+                <i class="bx bx-message-dots"></i>
+                <div class="ad-nav-content">
+                  <h4>Help & Support</h4>
+                  <span>View commonly asked questions</span>
+                </div>
+              </li>
+              <li>
+                <i class="bx bxs-gift"></i>
+                <div class="ad-nav-content">
+                  <h4>Rewards</h4>
+                  <span>View reward points & unlock new ones</span>
+                </div>
+              </li>
+              <li>
+                <i class="bx bx-cog"></i>
+                <div class="ad-nav-content">
+                  <h4>Account & Settings</h4>
+                  <span>Location, Payments, Permissions & More</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <!-- MOBILE MENU TOGGLE -->
+          <div class="hamburger-menu" id="hamburger-menu">
+            <div class="hamburger"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END NAV -->
+
+    <!-- HERO SECTION -->
+    <div class="hero-section">
+      <!-- HERO SLIDE -->
+      <div class="hero-slide">
+        <div class="owl-carousel carousel-nav-center" id="hero-carousel"></div>
+      </div>
+      <!-- END HERO SLIDE -->
+      <!-- TOP MOVIES SLIDE -->
+      <div class="top-movies-slide">
+        <div class="owl-carousel" id="top-movies-slide">
+          <!-- MOVIE ITEM -->
+          <div class="movie-item">
+            <img src="../images/series/supergirl.jpg" alt="" />
+            <div class="movie-item-content">
+              <div class="movie-item-title">Supergirl</div>
+              <div class="movie-infos">
+                <div class="movie-info">
+                  <i class="bx bxs-star"></i>
+                  <span>9.5</span>
+                </div>
+                <div class="movie-info">
+                  <i class="bx bxs-time"></i>
+                  <span>120 mins</span>
+                </div>
+                <div class="movie-info">
+                  <span>HD</span>
+                </div>
+                <div class="movie-info">
+                  <span>16+</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- END MOVIE ITEM -->
+          <!-- MOVIE ITEM -->
+          <div class="movie-item">
+            <img src="../images/movies/captain-marvel.png" alt="" />
+            <div class="movie-item-content">
+              <div class="movie-item-title">Captain Marvel</div>
+              <div class="movie-infos">
+                <div class="movie-info">
+                  <i class="bx bxs-star"></i>
+                  <span>9.5</span>
+                </div>
+                <div class="movie-info">
+                  <i class="bx bxs-time"></i>
+                  <span>120 mins</span>
+                </div>
+                <div class="movie-info">
+                  <span>HD</span>
+                </div>
+                <div class="movie-info">
+                  <span>16+</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- END MOVIE ITEM -->
+          <!-- MOVIE ITEM -->
+          <div class="movie-item">
+            <img src="../images/cartoons/demon-slayer.jpg" alt="" />
+            <div class="movie-item-content">
+              <div class="movie-item-title">Infinity Train</div>
+              <div class="movie-infos">
+                <div class="movie-info">
+                  <i class="bx bxs-star"></i>
+                  <span>9.5</span>
+                </div>
+                <div class="movie-info">
+                  <i class="bx bxs-time"></i>
+                  <span>120 mins</span>
+                </div>
+                <div class="movie-info">
+                  <span>HD</span>
+                </div>
+                <div class="movie-info">
+                  <span>16+</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- END MOVIE ITEM -->
+          <!-- MOVIE ITEM -->
+          <div class="movie-item">
+            <img src="../images/movies/blood-shot.jpg" alt="" />
+            <div class="movie-item-content">
+              <div class="movie-item-title">Bloodshot</div>
+              <div class="movie-infos">
+                <div class="movie-info">
+                  <i class="bx bxs-star"></i>
+                  <span>9.5</span>
+                </div>
+                <div class="movie-info">
+                  <i class="bx bxs-time"></i>
+                  <span>120 mins</span>
+                </div>
+                <div class="movie-info">
+                  <span>HD</span>
+                </div>
+                <div class="movie-info">
+                  <span>16+</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- END MOVIE ITEM -->
+          <!-- MOVIE ITEM -->
+          <div class="movie-item">
+            <img src="../images/series/wanda.png" alt="" />
+            <div class="movie-item-content">
+              <div class="movie-item-title">Wanda Vision</div>
+              <div class="movie-infos">
+                <div class="movie-info">
+                  <i class="bx bxs-star"></i>
+                  <span>9.5</span>
+                </div>
+                <div class="movie-info">
+                  <i class="bx bxs-time"></i>
+                  <span>120 mins</span>
+                </div>
+                <div class="movie-info">
+                  <span>HD</span>
+                </div>
+                <div class="movie-info">
+                  <span>16+</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- END MOVIE ITEM -->
+          <!-- MOVIE ITEM -->
+          <div class="movie-item">
+            <img src="../images/movies/bat-man.jpg" alt="" />
+            <div class="movie-item-content">
+              <div class="movie-item-title">The Dark Knight</div>
+              <div class="movie-infos">
+                <div class="movie-info">
+                  <i class="bx bxs-star"></i>
+                  <span>9.5</span>
+                </div>
+                <div class="movie-info">
+                  <i class="bx bxs-time"></i>
+                  <span>120 mins</span>
+                </div>
+                <div class="movie-info">
+                  <span>HD</span>
+                </div>
+                <div class="movie-info">
+                  <span>16+</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- END MOVIE ITEM -->
+        </div>
+      </div>
+      <!-- END TOP MOVIES SLIDE -->
+    </div>
+    <!-- END HERO SECTION -->
+
+    <!-- LATEST MOVIES SECTION -->
+    <div class="section">
+      <div class="container">
+        <div class="section-header">running movies</div>
+        <div
+          class="movies-slide carousel-nav-center owl-carousel running-movies"
+        ></div>
+      </div>
+    </div>
+    <!-- END LATEST MOVIES SECTION -->
+
+    <!-- LIVE EVENTS SECTION -->
+    <div class="section">
+      <div class="container">
+        <div class="section-header">live events</div>
+        <div class="movies-slide carousel-nav-center owl-carousel">
+          <!-- MOVIE ITEM -->
+          <a href="#" class="movie-item">
+            <img
+              src="../Assets/Images/Live Events/musician-8743467_1920.png"
+              alt=""
+            />
+            <div class="movie-item-content">
+              <div class="movie-item-title">
+                Morocco Live Music Event-FanFestival
+              </div>
+              <div class="movie-infos">
+                <div class="movie-info">
+                  <i class="bx bx-current-location"></i>
+                  <span>rue 75, n° 19, Grand Casablanca</span>
+                </div>
+                <div class="movie-info">
+                  <i class="bx bxs-time"></i>
+                  <span>8:30 PM</span>
+                </div>
+                <div class="movie-info">
+                  <span>14th Feb 2024</span>
+                </div>
+                <div class="movie-info">
+                  <span>$110 per ticket</span>
+                </div>
+              </div>
+            </div>
+          </a>
+          <!-- END MOVIE ITEM -->
+          <!-- MOVIE ITEM -->
+          <a href="#" class="movie-item">
+            <img
+              src="../Assets/Images/Live Events/musician-4895667_1920.jpg"
+              alt=""
+            />
+            <div class="movie-item-content">
+              <div class="movie-item-title">Crash Adams - Live Concert</div>
+              <div class="movie-infos">
+                <div class="movie-info">
+                  <i class="bx bx-current-location"></i>
+                  <span> 4770 Oliver Street, Arlington, Texas</span>
+                </div>
+                <div class="movie-info">
+                  <i class="bx bxs-time"></i>
+                  <span>3:30 PM</span>
+                </div>
+                <div class="movie-info">
+                  <span>17th July 2024</span>
+                </div>
+                <div class="movie-info">
+                  <span>$180 per ticket</span>
+                </div>
+              </div>
+            </div>
+          </a>
+          <!-- END MOVIE ITEM -->
+          <!-- MOVIE ITEM -->
+          <a href="#" class="movie-item">
+            <img
+              src="../Assets/Images/Live Events/pexels-jean-daniel-15751548.jpg"
+              alt=""
+            />
+            <div class="movie-item-content">
+              <div class="movie-item-title">FIS 2024-Snowboard Event</div>
+              <div class="movie-infos">
+                <div class="movie-info">
+                  <i class="bx bx-current-location"></i>
+                  <span>rue 75, n° 19, Grand Casablanca</span>
+                </div>
+                <div class="movie-info">
+                  <i class="bx bxs-time"></i>
+                  <span>8:30 PM</span>
+                </div>
+                <div class="movie-info">
+                  <span>14th July 2024</span>
+                </div>
+                <div class="movie-info">
+                  <span>$110 per ticket</span>
+                </div>
+              </div>
+            </div>
+          </a>
+          <!-- END MOVIE ITEM -->
+          <!-- MOVIE ITEM -->
+          <a href="#" class="movie-item">
+            <img
+              src="../Assets/Images/Live Events/pexels-giona-mason-1751396-19200994.jpg"
+              alt=""
+            />
+            <div class="movie-item-content">
+              <div class="movie-item-title">DriftDance Celebration Event</div>
+              <div class="movie-infos">
+                <div class="movie-info">
+                  <i class="bx bx-current-location"></i>
+                  <span>rue 75, s8 19, California</span>
+                </div>
+                <div class="movie-info">
+                  <i class="bx bxs-time"></i>
+                  <span>8:30 PM</span>
+                </div>
+                <div class="movie-info">
+                  <span>14th July 2024</span>
+                </div>
+                <div class="movie-info">
+                  <span>$110 per ticket</span>
+                </div>
+              </div>
+            </div>
+          </a>
+          <!-- END MOVIE ITEM -->
+          <!-- MOVIE ITEM -->
+          <a href="#" class="movie-item">
+            <img
+              src="../Assets/Images/Live Events/pexels-jvdm-1524620.jpg"
+              alt=""
+            />
+            <div class="movie-item-content">
+              <div class="movie-item-title">Gallopy Event-2024</div>
+              <div class="movie-infos">
+                <div class="movie-info">
+                  <i class="bx bx-current-location"></i>
+                  <span>4185 Cecil Street, Bridgeview, Illinois</span>
+                </div>
+                <div class="movie-info">
+                  <i class="bx bxs-time"></i>
+                  <span>8:30 PM</span>
+                </div>
+                <div class="movie-info">
+                  <span>20th July 2024</span>
+                </div>
+                <div class="movie-info">
+                  <span>$110 per ticket</span>
+                </div>
+              </div>
+            </div>
+          </a>
+          <!-- END MOVIE ITEM -->
+          <!-- MOVIE ITEM -->
+          <a href="#" class="movie-item">
+            <img
+              src="../Assets/Images/Live Events/pexels-ludakavun-18415660.jpg"
+              alt=""
+            />
+            <div class="movie-item-content">
+              <div class="movie-item-title">Car Fantasy Festival</div>
+              <div class="movie-infos">
+                <div class="movie-info">
+                  <i class="bx bx-current-location"></i>
+                  <span>1553 Oliver Street, Euless, Texas</span>
+                </div>
+                <div class="movie-info">
+                  <i class="bx bxs-time"></i>
+                  <span>8:30 PM</span>
+                </div>
+                <div class="movie-info">
+                  <span>21th Feb 2024</span>
+                </div>
+                <div class="movie-info">
+                  <span>$110 per ticket</span>
+                </div>
+              </div>
+            </div>
+          </a>
+          <!-- END MOVIE ITEM -->
+        </div>
+      </div>
+    </div>
+    <!-- END LIVE EVENTS SECTION -->
+
+    <!-- SPORTS SECTION -->
+    <div class="section">
+      <div class="container">
+        <div class="section-header">Sports</div>
+        <div class="movies-slide carousel-nav-center owl-carousel">
+          <!-- MOVIE ITEM -->
+          <a href="#" class="movie-item">
+            <img
+              src="../Assets/Images/Sports/pexels-yogendras31-4747325.jpg"
+              alt=""
+            />
+            <div class="movie-item-content">
+              <div class="movie-item-title">Under18 Cricket Coimbatore</div>
+              <div class="movie-infos">
+                <div class="movie-info">
+                  <i class="bx bx-current-location"></i>
+                  <span>Thopputhottam kgk road, Kuniyamuthu, Coimbatore</span>
+                </div>
+                <div class="movie-info">
+                  <i class="bx bxs-time"></i>
+                  <span>7:30 PM</span>
+                </div>
+                <div class="movie-info">
+                  <span>22th June 2024</span>
+                </div>
+                <div class="movie-info">
+                  <span>180rs</span>
+                </div>
+              </div>
+            </div>
+          </a>
+          <!-- END MOVIE ITEM -->
+          <!-- MOVIE ITEM -->
+          <a href="#" class="movie-item">
+            <img
+              src="../Assets/Images/Sports/connor-coyne-OgqWLzWRSaI-unsplash.jpg"
+              alt=""
+            />
+            <div class="movie-item-content">
+              <div class="movie-item-title">Football Club Semi-Finals</div>
+              <div class="movie-infos">
+                <div class="movie-info">
+                  <i class="bx bx-current-location"></i>
+                  <span>Mandapam Village, Viluppuram, Ayyankovilpattu</span>
+                </div>
+                <div class="movie-info">
+                  <i class="bx bxs-time"></i>
+                  <span>7:30 PM</span>
+                </div>
+                <div class="movie-info">
+                  <span>22th June 2024</span>
+                </div>
+                <div class="movie-info">
+                  <span>290rs</span>
+                </div>
+              </div>
+            </div>
+          </a>
+          <!-- END MOVIE ITEM -->
+          <!-- MOVIE ITEM -->
+          <a href="#" class="movie-item">
+            <img
+              src="../Assets/Images/Sports/hoi-pham-eLZwsPO8cCQ-unsplash.jpg"
+              alt=""
+            />
+            <div class="movie-item-content">
+              <div class="movie-item-title">Chennai Tennis Open</div>
+              <div class="movie-infos">
+                <div class="movie-info">
+                  <i class="bx bxs-star"></i>
+                  <span>Tennis Stadium, Nungambakkam, Chennai</span>
+                </div>
+                <div class="movie-info">
+                  <i class="bx bxs-time"></i>
+                  <span>8:30pm</span>
+                </div>
+                <div class="movie-info">
+                  <span>23rd June 2024</span>
+                </div>
+                <div class="movie-info">
+                  <span>1200rs</span>
+                </div>
+              </div>
+            </div>
+          </a>
+          <!-- END MOVIE ITEM -->
+          <!-- MOVIE ITEM -->
+          <a href="#" class="movie-item">
+            <img
+              src="../Assets/Images/Sports/pexels-tim-yisa-1040794498-20452526.jpg"
+              alt=""
+            />
+            <div class="movie-item-content">
+              <div class="movie-item-title">Kabaddi Finals, Tournament</div>
+              <div class="movie-infos">
+                <div class="movie-info">
+                  <i class="bx bxs-star"></i>
+                  <span>Ganesh Kabaddi, Mapad, Chennai</span>
+                </div>
+                <div class="movie-info">
+                  <i class="bx bxs-time"></i>
+                  <span>3:20pm</span>
+                </div>
+                <div class="movie-info">
+                  <span>23rd June 2024</span>
+                </div>
+                <div class="movie-info">
+                  <span>230rs</span>
+                </div>
+              </div>
+            </div>
+          </a>
+          <!-- END MOVIE ITEM -->
+          <!-- MOVIE ITEM -->
+          <a href="#" class="movie-item">
+            <img
+              src="../Assets/Images/Sports/agreen-kZDmVMr68vE-unsplash.jpg"
+              alt=""
+            />
+            <div class="movie-item-content">
+              <div class="movie-item-title">8 Ball Poll Tournament</div>
+              <div class="movie-infos">
+                <div class="movie-info">
+                  <i class="bx bxs-star"></i>
+                  <span>Nithin Plays, Mapad, Chennai</span>
+                </div>
+                <div class="movie-info">
+                  <i class="bx bxs-time"></i>
+                  <span>3:20pm</span>
+                </div>
+                <div class="movie-info">
+                  <span>27rd June 2024</span>
+                </div>
+                <div class="movie-info">
+                  <span>230rs</span>
+                </div>
+              </div>
+            </div>
+          </a>
+          <!-- END MOVIE ITEM -->
+          <!-- MOVIE ITEM -->
+          <a href="#" class="movie-item">
+            <img
+              src="../Assets/Images/Sports/victor-chartin-mTl9BsK9_aE-unsplash.jpg"
+              alt=""
+            />
+            <div class="movie-item-content">
+              <div class="movie-item-title">Table Tennis, Tournament</div>
+              <div class="movie-infos">
+                <div class="movie-info">
+                  <i class="bx bxs-star"></i>
+                  <span>Indoor Audi, Avadi, Chennai</span>
+                </div>
+                <div class="movie-info">
+                  <i class="bx bxs-time"></i>
+                  <span>3:20pm</span>
+                </div>
+                <div class="movie-info">
+                  <span>23rd June 2024</span>
+                </div>
+                <div class="movie-info">
+                  <span>230rs</span>
+                </div>
+              </div>
+            </div>
+          </a>
+          <!-- END MOVIE ITEM -->
+        </div>
+      </div>
+    </div>
+    <!-- END SPORTS SECTION -->
+
+    <!-- SPECIAL MOVIE SECTION -->
+    <div class="section">
+      <div class="hero-slide-item">
+        <img src="../images/transformer-banner.jpg" alt="" />
+        <div class="overlay"></div>
+        <div class="hero-slide-item-content">
+          <div class="item-content-wraper">
+            <div class="item-content-title">Transformer</div>
+            <div class="movie-infos">
+              <div class="movie-info">
+                <i class="bx bxs-star"></i>
+                <span>9.5</span>
+              </div>
+              <div class="movie-info">
+                <i class="bx bxs-time"></i>
+                <span>120 mins</span>
+              </div>
+              <div class="movie-info">
+                <span>HD</span>
+              </div>
+              <div class="movie-info">
+                <span>16+</span>
+              </div>
+            </div>
+            <div class="item-content-description">
+              High-school student Sam Witwicky buys his first car, who is
+              actually the Autobot Bumblebee. Bumblebee defends Sam and his
+              girlfriend Mikaela Banes from the Decepticon Barricade, before the
+              other Autobots arrive on Earth. They are searching for the
+              Allspark, and the war on Earth heats up as the Decepticons attack
+              a United States military base in Qatar. Sam and Mikaela are taken
+              by the top-secret agency Sector 7 to help stop the Decepticons,
+              but when they learn the agency also intends to destroy the
+              Autobots, they formulate their own plan to save the world
+            </div>
+            <div class="item-action">
+              <a href="#" class="btn btn-hover">
+                <i class="bx bxs-right-arrow"></i>
+                <span>Book now</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END SPECIAL MOVIE SECTION -->
+
+    <!-- FOOTER SECTION -->
+    <footer class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-4 col-md-6 col-sm-12">
+            <div class="content">
+              <a href="#" class="logo">
+                <i class="bx bx-movie-play bx-tada main-color"></i
+                ><span class="main-color">M</span>ovie
+                <span class="main-color">S</span>tudio
+              </a>
+              <p>
+                Dive into the world of movies with MovieStudio, your ultimate
+                destination for booking the latest blockbusters, indie gems, and
+                timeless classics. Experience the thrill of the big screen like
+                never before with our seamless booking process, exclusive
+                discounts , and a user-friendly interface designed for movie
+                lovers by movie lovers.
+              </p>
+              <div class="social-list">
+                <a href="#" class="social-item">
+                  <i class="bx bxl-facebook"></i>
+                </a>
+                <a href="#" class="social-item">
+                  <i class="bx bxl-twitter"></i>
+                </a>
+                <a href="#" class="social-item">
+                  <i class="bx bxl-instagram"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-8 col-md-6 col-sm-12">
+            <div class="row">
+              <div class="col-3 col-md-6 col-sm-6">
+                <div class="content">
+                  <p><b>Movie Studio</b></p>
+                  <ul class="footer-menu">
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">My profile</a></li>
+                    <li><a href="#">Pricing plans</a></li>
+                    <li><a href="#">Contacts</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-3 col-md-6 col-sm-6">
+                <div class="content">
+                  <p><b>Browse</b></p>
+                  <ul class="footer-menu">
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">My profile</a></li>
+                    <li><a href="#">Pricing plans</a></li>
+                    <li><a href="#">Contacts</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-3 col-md-6 col-sm-6">
+                <div class="content">
+                  <p><b>Help</b></p>
+                  <ul class="footer-menu">
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">My profile</a></li>
+                    <li><a href="#">Pricing plans</a></li>
+                    <li><a href="#">Contacts</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-3 col-md-6 col-sm-6">
+                <div class="content">
+                  <p><b>Download app</b></p>
+                  <ul class="footer-menu">
+                    <li>
+                      <a href="#">
+                        <img src="../images/google-play.png" alt="" />
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <img src="../images/app-store.png" alt="" />
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- END FOOTER SECTION -->
+
+    <!-- SCRIPT -->
+    <!-- JQUERY -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <!-- OWL CAROUSEL -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+      integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+      crossorigin="anonymous"
+    ></script>
+    <!-- APP SCRIPT -->
+    <script type="module" src="../js/app.js"></script>
+  </body>
+</html>

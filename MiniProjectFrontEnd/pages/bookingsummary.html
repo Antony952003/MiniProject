@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/booking_summary.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <title>Booking Summary</title>
+  </head>
+  <body>
+    <div class="nav-wrapper">
+      <div class="container">
+        <div class="nav">
+          <a href="#" class="logo">
+            <i class="bx bx-movie-play bx-tada main-color"></i
+            ><span class="main-color">M</span>ovie
+            <span class="main-color">S</span>tudio
+          </a>
+          <ul class="nav-menu" id="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="movieslisting.html">Movies</a></li>
+            <li><a href="#">Shows</a></li>
+            <li><a href="#">Sports</a></li>
+            <li><a href="#">About</a></li>
+            <li class="location">
+              <span>Chennai</span>
+              <i class="bx bx-chevron-down down-button"></i>
+            </li>
+            <li>
+              <a href="login.html" class="btn btn-hover">
+                <span id="logged-in">Sign in</span>
+              </a>
+            </li>
+            <li>
+              <div class="user">
+                <img class="user-profile-image" src="" alt="" />
+                <h4>Hey <span class="name-field"></span> !!</h4>
+              </div>
+            </li>
+          </ul>
+          <div class="account-details-nav">
+            <div class="ad-nav-header">
+              <div class="ad-nav-header-comp-1">
+                <h3>Hey !!</h3>
+                <span id="edit-profile">Edit Profile</span>
+              </div>
+              <div class="ad-nav-header-comp-2">
+                <img class="user-profile-image" src="" alt="" />
+                <h4 class="name-field"></h4>
+              </div>
+            </div>
+            <ul class="ad-nav-details">
+              <li>
+                <i class="bx bxs-shopping-bags"></i>
+                <div class="ad-nav-content">
+                  <h4>Your Orders</h4>
+                  <span>View all your bookings, purchases</span>
+                </div>
+              </li>
+              <li>
+                <i class="bx bx-message-dots"></i>
+                <div class="ad-nav-content">
+                  <h4>Help & Support</h4>
+                  <span>View commonly asked questions</span>
+                </div>
+              </li>
+              <li>
+                <i class="bx bxs-gift"></i>
+                <div class="ad-nav-content">
+                  <h4>Rewards</h4>
+                  <span>View reward points & unlock new ones</span>
+                </div>
+              </li>
+              <li>
+                <i class="bx bx-cog"></i>
+                <div class="ad-nav-content">
+                  <h4>Account & Settings</h4>
+                  <span>Location, Payments, Permissions & More</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <!-- MOBILE MENU TOGGLE -->
+          <div class="hamburger-menu" id="hamburger-menu">
+            <div class="hamburger"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup-location top-down">
+      <div class="search-field">
+        <i class="bx bx-search"></i>
+        <input type="text" placeholder="Search for your city" />
+      </div>
+      <div class="detect-my-location">
+        <i class="bx bx-current-location"></i>
+        <p>Detect my location</p>
+      </div>
+      <div class="popular-cities">
+        <p>Popular Cities</p>
+        <ul class="pcities">
+          <li><button>Mumbai</button></li>
+          <li><button>Delhi</button></li>
+          <li><button>Bengaluru</button></li>
+          <li><button>Hydrabad</button></li>
+          <li><button>Ahmedabad</button></li>
+          <li><button>Trichy</button></li>
+          <li><button>Chandigarh</button></li>
+          <li><button>Chennai</button></li>
+          <li><button>Pune</button></li>
+          <li><button>Kolkata</button></li>
+          <li><button>Kochi</button></li>
+          <li><button>Villupuram</button></li>
+          <li><button>Cheyyar</button></li>
+        </ul>
+        <button class="view-all-btn">View All Cities</button>
+      </div>
+    </div>
+    <div class="bscontainer">
+      <div class="snacks-list">
+        <h2>Grab a <span>Bite</span> !!</h2>
+        <p>Prebook your meal and save <span>more</span> !!</p>
+        <h2>Food & Beverages</h2>
+        <div id="snack-items"></div>
+      </div>
+      <div class="order-summary">
+        <h2><span>Booking</span> Summary</h2>
+        <div class="seats-price">
+          <p><span id="summary-seats"></span>( <span>2</span> Tickets )</p>
+          <p>Rs. <span id="summary-total"></span></p>
+        </div>
+        <span class="screen-name">AUDI 5</span>
+        <div class="convinence-fees">
+          <h3>Convenience Fees <i class="bx bx-chevron-down"></i></h3>
+          <div class="collapsed-content">
+            <p>Rs. <span>153.40</span></p>
+            <div class="inside-collapsed">
+              <p>Base Amount : Rs. <span>130</span></p>
+              <p>GST (18%) : Rs. <span>23.40</span></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="snacks-total">
+          <div class="collapsible foodbeverage">
+            <h3>Food & Beverage<i class="bx bx-chevron-down foodicon"></i></h3>
+            <p>Rs. <span id="snacks-total">0</span></p>
+          </div>
+        </div>
+        <div class="content" id="food-beverage-content">
+          <ul class="" id="selected-snacks"></ul>
+        </div>
+        <div class="subtotal">
+          <h5>Subtotal</h5>
+          <p>
+            Rs.
+            <span style="color: #c0392b !important" class="grand-total">0</span>
+          </p>
+        </div>
+        <div class="payable-amount">
+          <h3>Amount Payable</h3>
+          <p>Rs. <span class="grand-total">0</span></p>
+        </div>
+        <button id="confirm-booking">
+          Pay Amount : <span class="grand-total">0</span>
+        </button>
+      </div>
+    </div>
+    <script src="../js/booking_summary.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  </body>
+</html>

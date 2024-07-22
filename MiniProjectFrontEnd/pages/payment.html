@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Page</title>
+    <link rel="stylesheet" href="../css/payment.css" />
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+  </head>
+  <body>
+    <div id="loader" class="loader">
+      <div class="loader-inner"></div>
+    </div>
+    <div class="container">
+      <h1>Payment <span class="colored">Portal</span></h1>
+      <div class="booking-summary">
+        <p>
+          Theater: <span class="colored" id="theater-name">Cinema Theater</span>
+        </p>
+        <p>Movie: <span class="colored" id="movie-name">Movie Title</span></p>
+        <p>Screen: <span class="colored" id="screen-name">Screen 1</span></p>
+        <p>Tickets : <span class="colored" id="tickets">A1</span></p>
+        <p>Showtime : <span class="colored" id="showtime">A1</span></p>
+      </div>
+      <form id="payment-form">
+        <div class="payment-methods">
+          <label>
+            <input type="radio" name="payment-method" value="credit" checked />
+            Credit Card
+          </label>
+          <label>
+            <input type="radio" name="payment-method" value="debit" />
+            Debit Card
+          </label>
+          <label>
+            <input type="radio" name="payment-method" value="netbanking" />
+            Net Banking
+          </label>
+          <label>
+            <input type="radio" name="payment-method" value="upi" />
+            UPI
+          </label>
+        </div>
+        <div id="details-credit" class="payment-details">
+          <input
+            type="text"
+            name="card-number"
+            placeholder="Card Number"
+            required
+          />
+          <input
+            type="text"
+            name="expiry-date"
+            placeholder="Expiry Date (MM/YY)"
+            required
+          />
+          <input type="text" name="cvv" placeholder="CVV" required />
+        </div>
+        <div id="details-debit" class="payment-details hidden">
+          <input
+            type="text"
+            name="card-number"
+            placeholder="Card Number"
+            required
+          />
+          <input
+            type="text"
+            name="expiry-date"
+            placeholder="Expiry Date (MM/YY)"
+            required
+          />
+          <input type="text" name="cvv" placeholder="CVV" required />
+        </div>
+        <div id="details-netbanking" class="payment-details hidden">
+          <input
+            type="text"
+            name="bank-name"
+            placeholder="Bank Name"
+            required
+          />
+          <input
+            type="text"
+            name="account-number"
+            placeholder="Account Number"
+            required
+          />
+        </div>
+        <div id="details-upi" class="payment-details hidden">
+          <input type="text" name="upi-id" placeholder="UPI ID" required />
+        </div>
+        <button type="submit">Pay<span id="grand-total">Rs. 1054</span></button>
+      </form>
+    </div>
+    <script src="../js/payment_page.js"></script>
+  </body>
+</html>

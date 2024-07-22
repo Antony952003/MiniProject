@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Theater and Showtime Selection</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/showtimelisting.css" />
+  </head>
+  <body>
+    <div class="nav-wrapper">
+      <div class="container">
+        <div class="nav">
+          <a href="#" class="logo">
+            <i class="bx bx-movie-play bx-tada main-color"></i
+            ><span class="main-color">M</span>ovie
+            <span class="main-color">S</span>tudio
+          </a>
+          <ul class="nav-menu" id="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="movieslisting.html">Movies</a></li>
+            <li><a href="#">Shows</a></li>
+            <li><a href="#">Sports</a></li>
+            <li><a href="#">About</a></li>
+            <li class="location">
+              <span>Chennai</span>
+              <i class="bx bx-chevron-down down-button"></i>
+            </li>
+            <li>
+              <a href="login.html" class="btn btn-hover">
+                <span id="logged-in">Sign in</span>
+              </a>
+            </li>
+            <li>
+              <div class="user">
+                <img class="user-profile-image" src="" alt="" />
+                <h4>Hey <span class="name-field"></span> !!</h4>
+              </div>
+            </li>
+          </ul>
+          <div class="account-details-nav">
+            <div class="ad-nav-header">
+              <div class="ad-nav-header-comp-1">
+                <h3>Hey !!</h3>
+                <span id="edit-profile">Edit Profile</span>
+              </div>
+              <div class="ad-nav-header-comp-2">
+                <img class="user-profile-image" src="" alt="" />
+                <h4 class="name-field"></h4>
+              </div>
+            </div>
+            <ul class="ad-nav-details">
+              <li>
+                <i class="bx bxs-shopping-bags"></i>
+                <div class="ad-nav-content">
+                  <h4>Your Orders</h4>
+                  <span>View all your bookings, purchases</span>
+                </div>
+              </li>
+              <li>
+                <i class="bx bx-message-dots"></i>
+                <div class="ad-nav-content">
+                  <h4>Help & Support</h4>
+                  <span>View commonly asked questions</span>
+                </div>
+              </li>
+              <li>
+                <i class="bx bxs-gift"></i>
+                <div class="ad-nav-content">
+                  <h4>Rewards</h4>
+                  <span>View reward points & unlock new ones</span>
+                </div>
+              </li>
+              <li>
+                <i class="bx bx-cog"></i>
+                <div class="ad-nav-content">
+                  <h4>Account & Settings</h4>
+                  <span>Location, Payments, Permissions & More</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <!-- MOBILE MENU TOGGLE -->
+          <div class="hamburger-menu" id="hamburger-menu">
+            <div class="hamburger"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup-location top-down">
+      <div class="search-field">
+        <i class="bx bx-search"></i>
+        <input type="text" placeholder="Search for your city" />
+      </div>
+      <div class="detect-my-location">
+        <i class="bx bx-current-location"></i>
+        <p>Detect my location</p>
+      </div>
+      <div class="popular-cities">
+        <p>Popular Cities</p>
+        <ul class="pcities">
+          <li><button>Mumbai</button></li>
+          <li><button>Delhi</button></li>
+          <li><button>Bengaluru</button></li>
+          <li><button>Hydrabad</button></li>
+          <li><button>Ahmedabad</button></li>
+          <li><button>Trichy</button></li>
+          <li><button>Chandigarh</button></li>
+          <li><button>Chennai</button></li>
+          <li><button>Pune</button></li>
+          <li><button>Kolkata</button></li>
+          <li><button>Kochi</button></li>
+          <li><button>Villupuram</button></li>
+          <li><button>Cheyyar</button></li>
+        </ul>
+        <button class="view-all-btn">View All Cities</button>
+      </div>
+    </div>
+    <div class="showtimecontainer">
+      <h1><span id="movie-title">Movie Title</span></h1>
+      <div class="title-details">
+        <span id="cetificate-span">U/A</span>
+        <div class="genre-spans"></div>
+      </div>
+      <div class="filters">
+        <div class="filter">
+          <div class="day-buttons" id="day-buttons">
+            <!-- Day buttons will be injected here -->
+          </div>
+        </div>
+        <div class="filter">
+          <select id="format-filter">
+            <option class="option-format" value="">All Formats</option>
+            <option class="option-format" value="2D">2D</option>
+            <option class="option-format" value="3D">3D</option>
+            <option class="option-format" value="IMAX">IMAX</option>
+          </select>
+        </div>
+        <div class="filter">
+          <select id="time-filter">
+            <option value="">All Times</option>
+            <option value="morning">Morning (8AM - 12PM)</option>
+            <option value="afternoon">Afternoon (12PM - 4PM)</option>
+            <option value="evening">Evening (4PM - 8PM)</option>
+            <option value="night">Night (8PM - 12AM)</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="theater-list">
+        <!-- Theater and showtime details will be injected here -->
+      </div>
+    </div>
+
+    <script src="../js/showtimelisting.js"></script>
+  </body>
+</html>

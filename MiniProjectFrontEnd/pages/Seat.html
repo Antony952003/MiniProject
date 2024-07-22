@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/seat.css" />
+    <script defer src="../js/seat.js"></script>
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Movie Seat Booking</title>
+  </head>
+  <body>
+    <div class="nav-wrapper">
+      <div class="container">
+        <div class="nav">
+          <a href="#" class="logo">
+            <i class="bx bx-movie-play bx-tada main-color"></i
+            ><span class="main-color">M</span>ovie
+            <span class="main-color">S</span>tudio
+          </a>
+          <ul class="nav-menu" id="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="movieslisting.html">Movies</a></li>
+            <li><a href="#">Shows</a></li>
+            <li><a href="#">Sports</a></li>
+            <li><a href="#">About</a></li>
+            <li class="location">
+              <span>Chennai</span>
+              <i class="bx bx-chevron-down down-button"></i>
+            </li>
+            <li>
+              <a href="login.html" class="btn btn-hover">
+                <span id="logged-in">Sign in</span>
+              </a>
+            </li>
+            <li>
+              <div class="user">
+                <img class="user-profile-image" src="" alt="" />
+                <h4>Hey <span class="name-field"></span> !!</h4>
+              </div>
+            </li>
+          </ul>
+          <div class="account-details-nav">
+            <div class="ad-nav-header">
+              <div class="ad-nav-header-comp-1">
+                <h3>Hey !!</h3>
+                <span id="edit-profile">Edit Profile</span>
+              </div>
+              <div class="ad-nav-header-comp-2">
+                <img class="user-profile-image" src="" alt="" />
+                <h4 class="name-field"></h4>
+              </div>
+            </div>
+            <ul class="ad-nav-details">
+              <li>
+                <i class="bx bxs-shopping-bags"></i>
+                <div class="ad-nav-content">
+                  <h4>Your Orders</h4>
+                  <span>View all your bookings, purchases</span>
+                </div>
+              </li>
+              <li>
+                <i class="bx bx-message-dots"></i>
+                <div class="ad-nav-content">
+                  <h4>Help & Support</h4>
+                  <span>View commonly asked questions</span>
+                </div>
+              </li>
+              <li>
+                <i class="bx bxs-gift"></i>
+                <div class="ad-nav-content">
+                  <h4>Rewards</h4>
+                  <span>View reward points & unlock new ones</span>
+                </div>
+              </li>
+              <li>
+                <i class="bx bx-cog"></i>
+                <div class="ad-nav-content">
+                  <h4>Account & Settings</h4>
+                  <span>Location, Payments, Permissions & More</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <!-- MOBILE MENU TOGGLE -->
+          <div class="hamburger-menu" id="hamburger-menu">
+            <div class="hamburger"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup-location top-down">
+      <div class="search-field">
+        <i class="bx bx-search"></i>
+        <input type="text" placeholder="Search for your city" />
+      </div>
+      <div class="detect-my-location">
+        <i class="bx bx-current-location"></i>
+        <p>Detect my location</p>
+      </div>
+      <div class="popular-cities">
+        <p>Popular Cities</p>
+        <ul class="pcities">
+          <li><button>Mumbai</button></li>
+          <li><button>Delhi</button></li>
+          <li><button>Bengaluru</button></li>
+          <li><button>Hydrabad</button></li>
+          <li><button>Ahmedabad</button></li>
+          <li><button>Trichy</button></li>
+          <li><button>Chandigarh</button></li>
+          <li><button>Chennai</button></li>
+          <li><button>Pune</button></li>
+          <li><button>Kolkata</button></li>
+          <li><button>Kochi</button></li>
+          <li><button>Villupuram</button></li>
+          <li><button>Cheyyar</button></li>
+        </ul>
+        <button class="view-all-btn">View All Cities</button>
+      </div>
+    </div>
+    <ul class="showcase">
+      <li>
+        <div class="seat"></div>
+        <small>Available</small>
+      </li>
+      <li>
+        <div class="seat selected"></div>
+        <small>Selected</small>
+      </li>
+      <li>
+        <div class="seat sold"></div>
+        <small>Sold</small>
+      </li>
+    </ul>
+    <div class="scontainer">
+      <div class="container-seat"></div>
+      <div class="whitescreen"></div>
+    </div>
+    <div class="summary">
+      <p class="text">
+        <span>Seats Selected : <span id="count">0</span></span>
+        <span>Tickets : <span id="tickets"></span></span>
+        <span>Total price : <span id="total">0</span></span>
+      </p>
+      <a href="#" style="display: none" class="btn btn-hover paynow">
+        <span id="logged-in">Pay Now</span>
+      </a>
+    </div>
+    <!-- Popup Modal -->
+    <div id="popup-modal" class="popup-modal top-down">
+      <div class="popup-content">
+        <h3>Terms & Conditions</h3>
+        <ul>
+          <li>Entry is allowed only for valid ticket holders.</li>
+          <li>Guests aged under 18 will not be allowed in `A` rated movies.</li>
+          <li>
+            Children above the age of 3 years require tickets for `U` or `U/A`
+            rated movies.
+          </li>
+          <li>
+            In case a ticket is lost or misplaced, a duplicate ticket cannot be
+            issued.
+          </li>
+          <li>
+            Tickets once purchased cannot be cancelled, exchanged or refunded.
+          </li>
+          <li>
+            Guest Agrees to be contacted by INOX Management for the purpose of
+            seeking feedback for service improvement.
+          </li>
+          <li>
+            Decision(s) taken by <span id="theatername"></span> shall be final
+            and binding, Rights of admission reserved.
+          </li>
+          <li>
+            Outside food and beverages are not allowed inside the cinema
+            premises.
+          </li>
+          <li>
+            Patrons under the influence of alcohol or drugs will not be allowed
+            inside the Cinema Premises.
+          </li>
+          <li>
+            Ticket prices and movie schedules are subject to change without any
+            prior notification.
+          </li>
+        </ul>
+        <div class="popup-buttons">
+          <button id="accept-btn" class="btn btn-hover">
+            <span>Accept</span>
+          </button>
+          <button id="cancel-btn" class="btn btn-hover">
+            <span>Cancel</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/seat.js"></script>
+  </body>
+</html>
